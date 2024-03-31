@@ -1,0 +1,519 @@
+{
+  "$schema": "https://enconvo.com/schemas/extension.json",
+  "name": "writing_package",
+  "version": "0.0.2",
+  "description": "A package for writting",
+  "title": "Writing Package",
+  "icon": "icon.png",
+  "author": "EnconvoAI",
+  "license": "MIT",
+  "type": "module",
+  "categories": [
+    "Writing"
+  ],
+  "commands": [
+    {
+      "name": "emoji",
+      "title": "Emoji",
+      "description": "Give An Emoji Suggestion for given text",
+      "mode": "no-view",
+      "icon": "emoji.png",
+      "targetCommand": "chat_with_ai/command",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Suggest a  emoji that relate to the text. Only respond with the most relative emoji.\n\nText: {text}\nEmoji:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "hotkey",
+          "description": "The hotkey used to trigger the command",
+          "type": "hotkey",
+          "required": false,
+          "default": "",
+          "title": "Hotkey"
+        },
+        {
+          "name": "alias",
+          "description": "The alias used to trigger the command",
+          "type": "textfield",
+          "required": false,
+          "placeholder": "Add Alias",
+          "default": "",
+          "title": "Alias"
+        }
+      ]
+    },
+    {
+      "name": "fix-spelling-and-grammar",
+      "title": "Fix Spelling and Grammar",
+      "description": "Fix Spelling and Grammar",
+      "icon": "fix-spelling-and-grammar.png",
+      "mode": "no-view",
+      "targetCommand": "chat_with_ai/command",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a spelling corrector and improver. Rewrite the text with corrected spelling, grammar and punctuation. Use the text's original Language \n\nText: {text}\n\nFixed Text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "improve-writing",
+      "title": "Improve Writing",
+      "description": "Improve Writing",
+      "icon": "improve-writing.png",
+      "mode": "no-view",
+      "targetCommand": "chat_with_ai/command",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\nText: {text}\n\nImproved Text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "polish",
+      "title": "Polish",
+      "description": "Improve Writing",
+      "icon": "polish.png",
+      "mode": "no-view",
+      "targetCommand": "chat_with_ai/command",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language \n\nText: {text}\n\nPolished Text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "make-longer",
+      "title": "Make Longer",
+      "description": "expand the text to make it longer",
+      "icon": "longer.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "targetCommand": "chat_with_ai/command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a content writer. Expand the text with the following instructions: \n- Use the same style and tone of voice \n- Expand the key information and concepts \n- Avoid repetition \n- Stay factual close to the provided text \nUse the text's original Language  \n\nText: {text} \nExpanded text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "make-shorter",
+      "title": "Make Shorter",
+      "description": "Make Shorter",
+      "icon": "shorter.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "targetCommand": "chat_with_ai/command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a content writer. Make the text shorter with the following instructions:\n - Use the same style and tone of voice\n - Reduce repetition\n - Keep key information\n \nUse the text's original Language  \n\n Text:{text} \n Shorted text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_friendly",
+      "title": "Change Tone to Friendly",
+      "description": "Change Tone to Friendly",
+      "icon": "tone.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "targetCommand": "chat_with_ai/command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\nText: {text} \n\n Rewritten text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_confident",
+      "title": "Change Tone to Confident",
+      "description": "Change Tone to Confident",
+      "icon": "tone.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "targetCommand": "chat_with_ai/command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\nText: {text} \n\n Rewritten text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_casual",
+      "title": "Change Tone to Casual",
+      "description": "Change Tone to Casual",
+      "icon": "tone.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "params": [
+        {
+          "name": "text",
+          "description": "The text to be used ",
+          "type": "string",
+          "required": true,
+          "default": ""
+        }
+      ],
+      "targetCommand": "chat_with_ai/command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language \n\nText: {text} \n\n Rewritten text:",
+          "title": "Prompt"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Auto play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Auto Audio Play",
+          "default": false
+        },
+        {
+          "name": "tts",
+          "description": "Auto play TTS Engine",
+          "required": false,
+          "title": "Auto play TTS Engine",
+          "default": "default",
+          "type": "extension"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@enconvo/api": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.17.14",
+    "eslint": "^8.33.0",
+    "prettier": "^2.8.3",
+    "tsup": "^7.2.0",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "npm run lint --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --list-different \"**/*.ts\"",
+    "build": "enconvo",
+    "dev": "enconvo --dev"
+  }
+}
