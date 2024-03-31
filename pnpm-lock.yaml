@@ -1,0 +1,17 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  '@enconvo/api':
+    specifier: ^0.1.3
+    version: 0.1.3
+
+packages:
+
+  /@enconvo/api@0.1.3:
+    resolution: {integrity: sha512-sAtUsa51rUY5PW+qJ4ih4frR6IogsF8djwV74U9QrrdVtUomHzMEGCMEGkqLTFdvUiwWzZl2JfVjOVysubuxJg==}
+    hasBin: true
+    dev: false
