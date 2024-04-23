@@ -1,13 +1,14 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.3",
+  "version": "0.0.100",
   "description": "A package for writting",
-  "title": "Writing Package",
+  "title": "Writing Toolkit",
   "icon": "icon.png",
   "author": "EnconvoAI",
   "license": "MIT",
   "type": "module",
+  "minAppVersion": "1.8.8",
   "categories": [
     "Writing"
   ],
@@ -35,24 +36,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Suggest a  emoji that relate to the text. Only respond with the most relative emoji.\n\nText: {text}\nEmoji:",
+          "default": "Suggest a  emoji that relate to the text. Only respond with the most relative emoji.\n\nText: {{text}}\nEmoji:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -104,24 +105,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a spelling corrector and improver. Rewrite the text with corrected spelling, grammar and punctuation. Use the text's original Language \n\nText: {text}\n\nFixed Text:",
+          "default": "Act as a spelling corrector and improver. Rewrite the text with corrected spelling, grammar and punctuation. Use the text's original Language \n\nText: {{text}}\n\nFixed Text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -156,24 +157,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\nText: {text}\n\nImproved Text:",
+          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\nText: {{text}}\n\nImproved Text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -208,24 +209,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language \n\nText: {text}\n\nPolished Text:",
+          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language \n\nText: {{text}}\n\nPolished Text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -260,24 +261,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a content writer. Expand the text with the following instructions: \n- Use the same style and tone of voice \n- Expand the key information and concepts \n- Avoid repetition \n- Stay factual close to the provided text \nUse the text's original Language  \n\nText: {text} \nExpanded text:",
+          "default": "Act as a content writer. Expand the text with the following instructions: \n- Use the same style and tone of voice \n- Expand the key information and concepts \n- Avoid repetition \n- Stay factual close to the provided text \nUse the text's original Language  \n\nText: {{text}} \nExpanded text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -312,24 +313,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a content writer. Make the text shorter with the following instructions:\n - Use the same style and tone of voice\n - Reduce repetition\n - Keep key information\n \nUse the text's original Language  \n\n Text:{text} \n Shorted text:",
+          "default": "Act as a content writer. Make the text shorter with the following instructions:\n - Use the same style and tone of voice\n - Reduce repetition\n - Keep key information\n \nUse the text's original Language  \n\n Text:{{text}} \n Shorted text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -364,24 +365,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\nText: {text} \n\n Rewritten text:",
+          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\nText: {{text}} \n\n Rewritten text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -416,24 +417,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\nText: {text} \n\n Rewritten text:",
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\nText: {{text}} \n\n Rewritten text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -468,24 +469,24 @@
           "description": "The prompt used to generate responses",
           "type": "textfield",
           "required": false,
-          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language \n\nText: {text} \n\n Rewritten text:",
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language \n\nText: {{text}} \n\n Rewritten text:",
           "title": "Prompt"
         },
         {
           "name": "auto_audio_play",
-          "description": "Auto play result content",
+          "description": "Automatically play result content",
           "type": "checkbox",
           "required": false,
-          "title": "Auto Audio Play",
+          "title": "Automatically Play TTS Audio",
           "default": false
         },
         {
-          "name": "tts",
-          "description": "Auto play TTS Engine",
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
           "required": false,
-          "title": "Auto play TTS Engine",
           "default": "default",
-          "type": "extension"
+          "title": "TTS Provider"
         },
         {
           "name": "llm",
@@ -499,7 +500,7 @@
     }
   ],
   "dependencies": {
-    "@enconvo/api": "^0.1.3"
+    "@enconvo/api": "^0.1.123"
   },
   "devDependencies": {
     "@types/node": "^18.17.14",
