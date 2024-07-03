@@ -21,6 +21,9 @@
       "icon": "emoji.png",
       "targetCommand": "chat_with_ai/command",
       "aiPlugin": true,
+      "accepts": [
+        "text"
+      ],
       "params": [
         {
           "name": "text",
@@ -96,6 +99,9 @@
       "description": "Fix Spelling and Grammar",
       "icon": "fix-spelling-and-grammar.png",
       "mode": "no-view",
+      "accepts": [
+        "text"
+      ],
       "targetCommand": "chat_with_ai/command",
       "aiPlugin": true,
       "params": [
@@ -155,6 +161,9 @@
       "title": "Improve Writing",
       "description": "Improve Writing",
       "icon": "improve-writing.png",
+      "accepts": [
+        "text"
+      ],
       "mode": "no-view",
       "targetCommand": "chat_with_ai/command",
       "aiPlugin": true,
@@ -214,6 +223,9 @@
       "name": "polish",
       "title": "Polish",
       "description": "Improve Writing",
+      "accepts": [
+        "text"
+      ],
       "icon": "polish.png",
       "mode": "no-view",
       "targetCommand": "chat_with_ai/command",
@@ -273,6 +285,9 @@
     {
       "name": "make-longer",
       "title": "Make Longer",
+      "accepts": [
+        "text"
+      ],
       "description": "expand the text to make it longer",
       "icon": "longer.png",
       "mode": "no-view",
@@ -334,6 +349,9 @@
       "name": "make-shorter",
       "title": "Make Shorter",
       "description": "Make Shorter",
+      "accepts": [
+        "text"
+      ],
       "icon": "shorter.png",
       "mode": "no-view",
       "aiPlugin": true,
@@ -394,6 +412,9 @@
       "name": "change_tone_to_friendly",
       "title": "Change Tone to Friendly",
       "description": "Change Tone to Friendly",
+      "accepts": [
+        "text"
+      ],
       "icon": "tone.png",
       "mode": "no-view",
       "aiPlugin": true,
@@ -454,6 +475,9 @@
       "name": "change_tone_to_confident",
       "title": "Change Tone to Confident",
       "description": "Change Tone to Confident",
+      "accepts": [
+        "text"
+      ],
       "icon": "tone.png",
       "mode": "no-view",
       "aiPlugin": true,
@@ -513,6 +537,9 @@
     {
       "name": "change_tone_to_casual",
       "title": "Change Tone to Casual",
+      "accepts": [
+        "text"
+      ],
       "description": "Change Tone to Casual",
       "icon": "tone.png",
       "mode": "no-view",
