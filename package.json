@@ -152,7 +152,7 @@
           "type": "checkbox",
           "required": false,
           "title": "Inline Mode",
-          "default": true
+          "default": false
         }
       ]
     },
@@ -215,7 +215,7 @@
           "type": "checkbox",
           "required": false,
           "title": "Inline Mode",
-          "default": true
+          "default": false 
         }
       ]
     },
@@ -341,7 +341,7 @@
           "type": "checkbox",
           "required": false,
           "title": "Inline Mode",
-          "default": true
+          "default": false
         }
       ]
     },
@@ -404,7 +404,7 @@
           "type": "checkbox",
           "required": false,
           "title": "Inline Mode",
-          "default": true
+          "default": false
         }
       ]
     },
