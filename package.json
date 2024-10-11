@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.107",
+  "version": "0.0.108",
   "description": "A package for writting",
   "title": "Writing Toolkit",
   "icon": "icon.png",
