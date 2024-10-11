@@ -268,7 +268,6 @@
       "accepts": [
         "text"
       ],
-      "targetCommand": "chat_with_ai/command",
       "aiPlugin": true,
       "params": [
         {
@@ -280,14 +279,6 @@
         }
       ],
       "preferences": [
-        {
-          "name": "prompt",
-          "description": "The prompt used to generate responses",
-          "type": "multiline_textfield",
-          "required": false,
-          "default": "You are a grammar and spelling correction bot. Analyze text input and provide corrections for grammar, spelling, punctuation, and language usage.\n\n## Guidelines:\n1. Correct spelling errors, typos, and grammatical mistakes.\n2. Fix punctuation and capitalization issues.\n3. Improve sentence structure and clarity.\n4. Suggest better word choices without changing meaning.\n5. Address run-on sentences and fragments.\n6. Correct homophones (e.g., their/there/they're).\n7. Maintain original tone and style.\n8. Briefly explain significant changes.\n9. Consider context and specialized terminology.\n10. Respect regional spelling differences.\n11. Flag and suggest alternatives for inappropriate language.\n12. Output in the same language as the input.\n\n## Process:\n1. Analyze the input text thoroughly.\n2. Provide a corrected version.\n3. List changes made with brief explanations for significant corrections.\n4. If well-written, acknowledge quality and suggest minor improvements if applicable.\n",
-          "title": "Prompt"
-        },
         {
           "name": "auto_audio_play",
           "description": "Automatically play result content",
@@ -821,7 +812,8 @@
     }
   ],
   "dependencies": {
-    "@enconvo/api": "^0.1.128"
+    "@enconvo/api": "^0.1.128",
+    "@langchain/core": "^0.3.9"
   },
   "devDependencies": {
     "@types/node": "^18.19.33",
