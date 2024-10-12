@@ -21,19 +21,19 @@ export const fixSpellingGrammarPrompt = `You are a grammar and spelling correcti
     4. If well-written, acknowledge quality and suggest minor improvements if applicable.
 
 ## Output format:
-    1. The first line is the modified text(Do not use quotation marks.).
+    1. The first line is the modified text, starting with "**" and ending with "**".
     2. Then a blank line.
-    3. After that is the list of modifications, one per line.
+    3. After that is the list of modifications, one per line, with a title "🔄 Changes:".
 
 
 ## Example:
 Input:
-    "he is a good"
+    he is a good
 
 Output:
-    "He is good."
+    **He is good.**
 
-    Changes:
+    🔄 Changes:
     - Removed the article "a" before the adjective "good" to improve clarity.
     - Capitalized the pronoun "He" at the beginning of the sentence.
     - Added a period at the end of the sentence for proper punctuation.

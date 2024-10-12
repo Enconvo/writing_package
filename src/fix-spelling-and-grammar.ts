@@ -8,7 +8,7 @@ const chatHistory = new CoreDataChatHistory();
 
 export default async function main(req: Request) {
     const { options } = await req.json();
-    const { text, context, reset } = options;
+    const { text, context, reset, clean_result } = options;
 
     let message = text || context;
 
@@ -42,7 +42,7 @@ export default async function main(req: Request) {
         const promptMessage = template.format({
             text: message,
         });
-        messages = [new SystemMessage(promptMessage)];
+        messages = [new HumanMessage(promptMessage)];
     }
 
 
@@ -59,6 +59,8 @@ export default async function main(req: Request) {
         correctText = lines[0] || ''
         // 去掉两头的空格，引号
         correctText = correctText.trim().replace(/^['"]/, '').replace(/['"]$/, '')
+        // 去掉两头的 **
+        correctText = correctText.replace(/^\*\*/, '').replace(/\*\*$/, '')
     }
 
     console.log("result", hasMessages, correctText)
@@ -78,7 +80,7 @@ export default async function main(req: Request) {
     ]
 
     const output = {
-        content: result,
+        content: clean_result === true ? correctText : result,
         actions: actions
     }
 
