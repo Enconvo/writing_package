@@ -1,5 +1,5 @@
 
-import { StringTemplate, uuid as uuidv4, ServiceProvider, ChatHistory, ActionProps, Action, LLMUtil, LLMProviderBase, language, Command, environment, CoreDataChatHistory } from "@enconvo/api";
+import { StringTemplate, uuid as uuidv4, ServiceProvider, ChatHistory, ActionProps, Action, LLMUtil, LLMProviderBase, Command, environment, CoreDataChatHistory } from "@enconvo/api";
 import { BaseMessage, HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
 
@@ -8,9 +8,9 @@ const chatHistory = new CoreDataChatHistory();
 
 export default async function main(req: Request) {
     const { options } = await req.json();
-    const { text, context, reset, clean_result } = options;
+    const { input_text, context, reset, clean_result } = options;
 
-    let message = text || context;
+    let message = input_text || context;
 
 
     if (!message) {
@@ -19,10 +19,10 @@ export default async function main(req: Request) {
 
     const requestId = uuidv4()
 
-
-    const promptMessage = fixSpellingGrammarPrompt
+    let promptMessage = fixSpellingGrammarPrompt
 
     const template = new StringTemplate(promptMessage)
+    promptMessage = await template.autoFormat(options)
 
     reset && chatHistory.reset();
     const historyMessages = await chatHistory.getMessages()
@@ -32,16 +32,13 @@ export default async function main(req: Request) {
 
     if (hasMessages) {
         messages = [
-            new SystemMessage(`Your are a bot named ${environment.commandTitle}, your prompt is "${promptMessage}",please respond based on the user's latest input. `),
+            new SystemMessage(`Your are a bot named ${environment.commandTitle}, your prompt is "${fixSpellingGrammarPrompt}",please respond based on the user's latest input. `),
             ...historyMessages,
             new HumanMessage(message)
         ]
 
     } else {
 
-        const promptMessage = template.format({
-            text: message,
-        });
         messages = [new HumanMessage(promptMessage)];
     }
 
