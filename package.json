@@ -39,7 +39,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -111,7 +111,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -198,7 +198,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -347,7 +347,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -417,7 +417,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -487,7 +487,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -557,7 +557,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -627,7 +627,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -697,7 +697,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
@@ -767,7 +767,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
         },
         {
