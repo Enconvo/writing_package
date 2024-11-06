@@ -42,5 +42,5 @@ Output:
     Strictly adhere to the format of the Output format, otherwise it may result in a failed review.
 
 Input:
-{{input_text}}
+{{input_text}}{{selection_text}}
 `

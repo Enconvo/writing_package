@@ -8,9 +8,9 @@ const chatHistory = new CoreDataChatHistory();
 
 export default async function main(req: Request) {
     const { options } = await req.json();
-    const { input_text, context, reset, clean_result } = options;
+    const { input_text,selection_text ,context, reset, clean_result } = options;
 
-    let message = input_text || context;
+    let message = input_text || context || selection_text;
 
 
     if (!message) {
