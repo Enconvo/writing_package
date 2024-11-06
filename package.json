@@ -30,7 +30,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Suggest a  emoji that relate to the text. Only respond with the most relative emoji.",
+          "default": "Suggest a  emoji that relate to the text. Only respond with the most relative emoji. I will give you the input:",
           "title": "Prompt"
         },
         {
@@ -338,7 +338,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n",
+          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:",
           "title": "Prompt"
         },
         {
@@ -408,7 +408,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language.",
+          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language. . I will give you the input:",
           "title": "Prompt"
         },
         {
@@ -478,7 +478,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Your task is to expand the given input text while maintaining its core message and context. Analyze the input to understand its main ideas, tone, and purpose, then paraphrase and elaborate on the content without introducing new information or changing the original meaning.\n\n# Steps\n\n1. Carefully read and comprehend the input text.\n2. Identify the main ideas, key points, and overall tone.\n3. Paraphrase each part of the input, expanding on phrases and sentences:\n   - Use more descriptive language and longer phrases\n   - Elaborate on concepts without adding new information\n   - Maintain the original tone and style\n4. Ensure the expanded text flows naturally and remains coherent.\n5. Verify that the length has increased by approximately 50-100%.\n6. Review the expanded text to ensure it preserves all original data, numbers, and statistics.\n7. Check that the language and terminology are consistent with the input.\n8. If applicable, confirm the expanded version is in the same language as the input.\n\n# Output Format\n\nProvide the expanded text in a single paragraph or multiple paragraphs, depending on the length and complexity of the input. Maintain the original formatting style (e.g., paragraph structure, use of bullet points) unless minor adjustments are needed for readability.\n\n# Examples\n\nInput: [Short input text]\nOutput: [Expanded version of the input text, approximately 50-100% longer]\n\n(Note: Real examples would be significantly longer, potentially spanning multiple paragraphs depending on the input length.)\n\n# Notes\n\n- Do not introduce new topics, themes, or information not present in the original text.\n- Preserve the original message, context, and intent of the input.\n- Ensure that any specific data, numbers, or statistics from the original text are accurately maintained in the expanded version.\n- If the input is very short (e.g., a single sentence), aim for the higher end of the expansion range (closer to 100% increase).\n- For longer inputs, a 50% increase may be more appropriate to maintain coherence and avoid unnecessary verbosity.",
+          "default": "Your task is to expand the given input text while maintaining its core message and context. Analyze the input to understand its main ideas, tone, and purpose, then paraphrase and elaborate on the content without introducing new information or changing the original meaning.\n\n# Steps\n\n1. Carefully read and comprehend the input text.\n2. Identify the main ideas, key points, and overall tone.\n3. Paraphrase each part of the input, expanding on phrases and sentences:\n   - Use more descriptive language and longer phrases\n   - Elaborate on concepts without adding new information\n   - Maintain the original tone and style\n4. Ensure the expanded text flows naturally and remains coherent.\n5. Verify that the length has increased by approximately 50-100%.\n6. Review the expanded text to ensure it preserves all original data, numbers, and statistics.\n7. Check that the language and terminology are consistent with the input.\n8. If applicable, confirm the expanded version is in the same language as the input.\n\n# Output Format\n\nProvide the expanded text in a single paragraph or multiple paragraphs, depending on the length and complexity of the input. Maintain the original formatting style (e.g., paragraph structure, use of bullet points) unless minor adjustments are needed for readability.\n\n# Examples\n\nInput: [Short input text]\nOutput: [Expanded version of the input text, approximately 50-100% longer]\n\n(Note: Real examples would be significantly longer, potentially spanning multiple paragraphs depending on the input length.)\n\n# Notes\n\n- Do not introduce new topics, themes, or information not present in the original text.\n- Preserve the original message, context, and intent of the input.\n- Ensure that any specific data, numbers, or statistics from the original text are accurately maintained in the expanded version.\n- If the input is very short (e.g., a single sentence), aim for the higher end of the expansion range (closer to 100% increase).\n- For longer inputs, a 50% increase may be more appropriate to maintain coherence and avoid unnecessary verbosity. I will give you the input:",
           "title": "Prompt"
         },
         {
@@ -548,7 +548,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\nExample:\nInput: ```Donald Trump has made a statement in which he commits to hiring a larger number of agents who are part of the Border Patrol, in addition to proposing a significant increase in the salaries these agents receive.```\nOutput:  ```Trump promises to hire more Border Patrol agents and increase salaries.```\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter.",
+          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\nExample:\nInput: ```Donald Trump has made a statement in which he commits to hiring a larger number of agents who are part of the Border Patrol, in addition to proposing a significant increase in the salaries these agents receive.```\nOutput:  ```Trump promises to hire more Border Patrol agents and increase salaries.```\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter. I will give you the input:",
           "title": "Prompt"
         },
         {
@@ -618,7 +618,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\n",
+          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\n I will give you the input:",
           "title": "Prompt"
         },
         {
@@ -688,7 +688,7 @@
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\n",
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\n I will give you the input:",
           "title": "Prompt"
         },
         {
