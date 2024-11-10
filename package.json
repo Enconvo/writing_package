@@ -1,8 +1,8 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.110",
-  "description": "A package for writting",
+  "version": "0.0.111",
+  "description": "A package for writing",
   "title": "Writing Toolkit",
   "icon": "icon.png",
   "author": "EnconvoAI",
@@ -19,7 +19,7 @@
       "description": "Give An Emoji Suggestion for given text",
       "mode": "no-view",
       "icon": "emoji.png",
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "aiPlugin": true,
       "accepts": [
         "text"
@@ -91,7 +91,7 @@
       "description": "Explain the text",
       "mode": "no-view",
       "icon": "explain.png",
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "aiPlugin": true,
       "accepts": [
         "text"
@@ -162,12 +162,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -178,7 +172,7 @@
       "description": "Summarize the text",
       "mode": "no-view",
       "icon": "summarize.png",
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "aiPlugin": true,
       "accepts": [
         "text"
@@ -249,12 +243,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -311,12 +299,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -330,7 +312,7 @@
         "text"
       ],
       "mode": "no-view",
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "aiPlugin": true,
       "preferences": [
         {
@@ -381,12 +363,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -400,7 +376,7 @@
       ],
       "icon": "polish.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "aiPlugin": true,
       "preferences": [
         {
@@ -451,12 +427,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -471,7 +441,7 @@
       "icon": "longer.png",
       "mode": "no-view",
       "aiPlugin": true,
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "preferences": [
         {
           "name": "prompt",
@@ -521,12 +491,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -541,7 +505,7 @@
       "icon": "shorter.png",
       "mode": "no-view",
       "aiPlugin": true,
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "preferences": [
         {
           "name": "prompt",
@@ -591,12 +555,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -611,7 +569,7 @@
       "icon": "tone.png",
       "mode": "no-view",
       "aiPlugin": true,
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "preferences": [
         {
           "name": "prompt",
@@ -661,12 +619,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -681,7 +633,7 @@
       "icon": "tone.png",
       "mode": "no-view",
       "aiPlugin": true,
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "preferences": [
         {
           "name": "prompt",
@@ -731,12 +683,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
@@ -751,7 +697,7 @@
       "icon": "tone.png",
       "mode": "no-view",
       "aiPlugin": true,
-      "targetCommand": "chat_with_ai/command",
+      "targetCommand": "chat_with_ai|command",
       "preferences": [
         {
           "name": "prompt",
@@ -801,12 +747,6 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "data": [
-            {
-              "title": "Auto Detect",
-              "value": "auto"
-            }
-          ],
           "dataProxy": "translate|languages"
         }
       ]
