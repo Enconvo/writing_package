@@ -1,0 +1,770 @@
+{
+  "$schema": "https://enconvo.com/schemas/extension.json",
+  "name": "writing_package",
+  "version": "0.0.112",
+  "description": "A package for writing",
+  "title": "Writing Toolkit",
+  "icon": "icon.png",
+  "author": "EnconvoAI",
+  "license": "MIT",
+  "type": "module",
+  "minAppVersion": "1.8.8",
+  "categories": [
+    "Writing"
+  ],
+  "commands": [
+    {
+      "name": "emoji",
+      "title": "Emoji",
+      "description": "Give An Emoji Suggestion for given text",
+      "mode": "no-view",
+      "icon": "emoji.png",
+      "targetCommand": "chat_with_ai|command",
+      "aiPlugin": true,
+      "accepts": [
+        "text"
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Suggest a  emoji that relate to the text. Only respond with the most relative emoji. I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "hotkey",
+          "description": "The hotkey used to trigger the command",
+          "type": "hotkey",
+          "required": false,
+          "default": "",
+          "title": "Hotkey"
+        },
+        {
+          "name": "alias",
+          "description": "The alias used to trigger the command",
+          "type": "textfield",
+          "required": false,
+          "placeholder": "Add Alias",
+          "default": "",
+          "title": "Alias"
+        }
+      ]
+    },
+    {
+      "name": "explain",
+      "title": "Explain",
+      "description": "Explain the text",
+      "mode": "no-view",
+      "icon": "explain.png",
+      "targetCommand": "chat_with_ai|command",
+      "aiPlugin": true,
+      "accepts": [
+        "text"
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "You are an Explanation Bot that provides clear, concise explanations for various topics or concepts.\n\n## Task:\n1. Read the user's input.\n2. Identify the input language.\n3. Analyze and identify key points.\n4. Provide a brief, accessible explanation (1-3 sentences).\n5. Use the same language as the input.\n\n## Guidelines:\n- Focus on core concepts.\n- Use simple, neutral language.\n- For current events, summarize without adding context.\n- For scientific concepts, provide basic definition and significance.\n- Always respond in the input language without translation.\n- Maintain original script and language.\n\n## Examples:\n\nInput: ```Quantum Mechanics```\nOutput: ```Quantum Mechanics is a physics theory describing matter and energy behavior at atomic levels. It explains phenomena like wave-particle duality and quantum entanglement that classical physics cannot.```\n\nInput: ```量子力学```\nOutput: ```量子力学是描述原子尺度上物质和能量行为的物理学理论。它解释了经典物理学无法解释的现象，如波粒二象性和量子纠缠。```\n\nInput: ```الميكانيكا الكمية```\nOutput: ```الميكانيكا الكمية هي نظرية فيزيائية تصف سلوك المادة والطاقة على المستوى الذري. وهي تفسر ظواهر مثل ازدواجية الموجة والجسيم والتشابك الكمي التي تعجز الفيزياء الكلاسيكية عن تفسيرها.```\n {{responseLanguage}} \n\n Input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "hotkey",
+          "description": "The hotkey used to trigger the command",
+          "type": "hotkey",
+          "required": false,
+          "default": "",
+          "title": "Hotkey"
+        },
+        {
+          "name": "alias",
+          "description": "The alias used to trigger the command",
+          "type": "textfield",
+          "required": false,
+          "placeholder": "Add Alias",
+          "default": "",
+          "title": "Alias"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "summarize",
+      "title": "Summarize",
+      "description": "Summarize the text",
+      "mode": "no-view",
+      "icon": "summarize.png",
+      "targetCommand": "chat_with_ai|command",
+      "aiPlugin": true,
+      "accepts": [
+        "text"
+      ],
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "You are a summarization bot that condenses lengthy texts into concise, informative summaries.\n\n## Guidelines:\n1. Capture main ideas and key points.\n2. Maintain neutrality and factual accuracy.\n3. Aim for 10-20% of original length.\n4. Use clear, straightforward language.\n5. Focus on core content; avoid unnecessary details.\n6. Preserve overall context and importance.\n7. Include key benefits and concerns if present.\n8. Don't introduce new information.\n9. Use active voice and strong verbs.\n10. Ensure the summary is self-contained.\n11. Always summarize in the input text's language.\n\n## Process:\n1. Analyze the content.\n2. Identify core message and supporting points.\n3. Create a single-paragraph summary capturing the text's essence.\n\n {{responseLanguage}} \n\n Input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "hotkey",
+          "description": "The hotkey used to trigger the command",
+          "type": "hotkey",
+          "required": false,
+          "default": "",
+          "title": "Hotkey"
+        },
+        {
+          "name": "alias",
+          "description": "The alias used to trigger the command",
+          "type": "textfield",
+          "required": false,
+          "placeholder": "Add Alias",
+          "default": "",
+          "title": "Alias"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "fix-spelling-and-grammar",
+      "title": "Fix Spelling & Grammar",
+      "description": "Fix Spelling and Grammar",
+      "icon": "fix-spelling-and-grammar.png",
+      "mode": "no-view",
+      "accepts": [
+        "text"
+      ],
+      "parameters": {
+        "input_text": {
+          "type": "string",
+          "description": "The text to fix spelling and grammar"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text to fix spelling and grammar"
+        }
+      },
+      "aiPlugin": true,
+      "preferences": [
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "improve-writing",
+      "title": "Improve Writing",
+      "description": "Improve Writing",
+      "icon": "improve-writing.png",
+      "accepts": [
+        "text"
+      ],
+      "mode": "no-view",
+      "targetCommand": "chat_with_ai|command",
+      "aiPlugin": true,
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "polish",
+      "title": "Polish",
+      "description": "Improve Writing",
+      "accepts": [
+        "text"
+      ],
+      "icon": "polish.png",
+      "mode": "no-view",
+      "targetCommand": "chat_with_ai|command",
+      "aiPlugin": true,
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language. . I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "make-longer",
+      "title": "Make Longer",
+      "accepts": [
+        "text"
+      ],
+      "description": "expand the text to make it longer",
+      "icon": "longer.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "targetCommand": "chat_with_ai|command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Expand upon the given content by adding details, examples, or explanations to enhance its depth and clarity.\n\n- Ensure the original message's intent and meaning are preserved while adding more substance.\n- Focus on incorporating additional relevant information or context that supports the primary ideas.\n\n# Steps\n\n1. Identify the key points and ideas in the original content.\n2. Research or brainstorm relevant information to elaborate on those key points.\n3. Integrate the additional information seamlessly into the text.\n4. Revise the structure if necessary to improve flow and coherence.\n\n# Output Format\n\nThe output should be in paragraph format, significantly longer than the original content. Aim for at least 50% more length while ensuring readability and engagement.\n\n# Examples\n\nExample 1:\n- **Input:** 'Cats are great pets.'\n- **Output:** 'Cats are wonderful pets that bring joy and companionship to many households. They are known for their playful nature, independence, and ability to bond with their owners. Many cat owners appreciate their low maintenance compared to other pets, as cats often groom themselves and require less attention. Furthermore, studies have shown that having a cat can reduce stress and provide comfort during tough times.'\n\nExample 2:\n- **Input:** 'Exercise is important.'\n- **Output:** 'Exercise plays a crucial role in maintaining both physical and mental health. Regular physical activity helps improve cardiovascular health, strengthen muscles, and enhance flexibility. It also contributes to better mental health by releasing endorphins, which can alleviate feelings of anxiety and depression. Incorporating a variety of exercises, such as aerobic activities, strength training, and flexibility exercises, can lead to an overall healthier lifestyle.'\n\n# Notes\n\n- Aim for clarity and depth; avoid filler content that doesn't contribute meaningful information.\n- Maintain the original message’s tone and style while enriching the content.",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "make-shorter",
+      "title": "Make Shorter",
+      "description": "Make Shorter",
+      "accepts": [
+        "text"
+      ],
+      "icon": "shorter.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "targetCommand": "chat_with_ai|command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\nExample:\nInput: ```Donald Trump has made a statement in which he commits to hiring a larger number of agents who are part of the Border Patrol, in addition to proposing a significant increase in the salaries these agents receive.```\nOutput:  ```Trump promises to hire more Border Patrol agents and increase salaries.```\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter. I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_friendly",
+      "title": "Change Tone Friendly",
+      "description": "Change Tone to Friendly",
+      "accepts": [
+        "text"
+      ],
+      "icon": "tone.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "targetCommand": "chat_with_ai|command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\n I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_confident",
+      "title": "Change Tone Confident",
+      "description": "Change Tone to Confident",
+      "accepts": [
+        "text"
+      ],
+      "icon": "tone.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "targetCommand": "chat_with_ai|command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\n I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_casual",
+      "title": "Change Tone Casual",
+      "accepts": [
+        "text"
+      ],
+      "description": "Change Tone to Casual",
+      "icon": "tone.png",
+      "mode": "no-view",
+      "aiPlugin": true,
+      "targetCommand": "chat_with_ai|command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language.",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    }
+  ],
+  "devDependencies": {
+    "@types/node": "^18.19.33",
+    "eslint": "^8.57.0",
+    "prettier": "^2.8.8",
+    "tsup": "^7.2.0",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "npm run lint --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --list-different \"**/*.ts\"",
+    "build": "enconvo",
+    "dev": "enconvo --dev"
+  }
+}
