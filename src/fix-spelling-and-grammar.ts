@@ -1,4 +1,4 @@
-import { StringTemplate, uuid as uuidv4, ChatHistory, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction } from "@enconvo/api";
+import { StringTemplate, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction } from "@enconvo/api";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
 
 
@@ -7,7 +7,6 @@ export default async function main(req: Request) {
     const { input_text, selection_text, context, clean_result, history_messages: historyMessages } = options;
 
     let message = input_text || context || selection_text;
-    const requestId = uuidv4();
 
     if (!message) {
         throw new Error("No text to be processed")
@@ -49,13 +48,6 @@ export default async function main(req: Request) {
         correctText = correctText.trim().replace(/^['"]/, '').replace(/['"]$/, '')
         correctText = correctText.replace(/^\*\*/, '').replace(/\*\*$/, '')
     }
-
-    await ChatHistory.saveChatMessages({
-        input: message,
-        output: result,
-        llmOptions: options.llm,
-        requestId
-    });
 
     const actions: ResponseAction[] = [
         Action.Paste({ content: correctText }),
