@@ -752,8 +752,8 @@
       ]
     }
   ],
+
   "devDependencies": {
-    "@enconvo/api": "^0.1.149",
     "@types/node": "^22.10.2",
     "eslint": "^9.17.0",
     "prettier": "^3.4.2",
