@@ -752,7 +752,9 @@
       ]
     }
   ],
-
+  "dependencies": {
+    "@enconvo/api": "^0.1.153"
+  },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "eslint": "^9.17.0",
