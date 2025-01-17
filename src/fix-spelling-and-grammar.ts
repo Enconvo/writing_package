@@ -4,7 +4,7 @@ import { fixSpellingGrammarPrompt } from "./prompts.ts";
 
 export default async function main(req: Request) {
     const options: RequestOptions = await req.json();
-    const { input_text, selection_text, context, clean_result, history_messages: historyMessages } = options;
+    let { input_text, selection_text, context, clean_result, history_messages: historyMessages } = options;
 
     let message = input_text || context || selection_text;
 
@@ -19,6 +19,7 @@ export default async function main(req: Request) {
     promptMessage = await template.autoFormat(options)
 
     let messages: BaseChatMessage[] = [];
+    historyMessages = historyMessages || []
     const hasMessages = historyMessages.length > 0
 
     if (hasMessages) {
