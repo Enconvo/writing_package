@@ -1,4 +1,4 @@
-import { StringTemplate, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction } from "@enconvo/api";
+import { StringTemplate, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction, Response } from "@enconvo/api";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
 
 
@@ -34,10 +34,7 @@ export default async function main(req: Request) {
     }
 
     const llmProvider = await LLMProvider.fromEnv()
-    const resultMessage = await llmProvider.stream({
-        messages,
-        autoHandle: true
-    })
+    const resultMessage = await llmProvider.stream({ messages });
 
     const result = resultMessage.text()
 
@@ -56,12 +53,6 @@ export default async function main(req: Request) {
         Action.Copy({ content: correctText })
     ]
 
-    const output = {
-        content: clean_result === true ? correctText : result,
-        actions: actions
-    }
 
-    Command.setDefaultCommandKey(`${environment.extensionName}|${environment.commandName}`).then()
-
-    return output;
+    return Response.messages([resultMessage], actions);
 }
