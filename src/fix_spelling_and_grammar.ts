@@ -1,10 +1,10 @@
-import { StringTemplate, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction, Response } from "@enconvo/api";
+import { StringTemplate, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction, Response, res } from "@enconvo/api";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
 
 
 export default async function main(req: Request) {
     const options: RequestOptions = await req.json();
-    let { input_text, selection_text, context, clean_result, history_messages: historyMessages } = options;
+    let { post_action, input_text, selection_text, context, clean_result, history_messages: historyMessages } = options;
 
     let message = input_text || context || selection_text;
 
@@ -53,6 +53,7 @@ export default async function main(req: Request) {
         Action.Copy({ content: correctText })
     ]
 
+    res.handlePostAction(correctText, post_action)
 
     return Response.messages([resultMessage], actions);
 }

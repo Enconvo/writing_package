@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.114",
+  "version": "0.0.116",
   "description": "A package for writing",
   "title": "Writing Toolkit",
   "icon": "icon.png",
@@ -195,10 +195,102 @@
       ]
     },
     {
+      "name": "fix_spelling_and_grammar",
+      "title": "Fix Spelling & Grammar",
+      "description": "Fix Spelling and Grammar",
+      "icon": "fix-spelling-and-grammar.png",
+      "mode": "no-view",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "input_text": {
+            "type": "string",
+            "description": "The text to fix spelling and grammar"
+          },
+          "selection_text": {
+            "type": "string",
+            "description": "The selected text to fix spelling and grammar"
+          }
+        }
+      },
+      "preferences": [
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        },
+        {
+          "name": "post_action",
+          "title": "Post Action",
+          "description": "Configure actions to perform after receiving response",
+          "type": "group",
+          "preferences": [
+            {
+              "name": "post_action",
+              "description": "Configure actions to perform after receiving response",
+              "type": "dropdown",
+              "required": false,
+              "title": "Post Action",
+              "default": "none",
+              "data": [
+                {
+                  "title": "None",
+                  "value": "none"
+                },
+                {
+                  "title": "Paste",
+                  "value": "paste"
+                },
+                {
+                  "title": "Insert Below",
+                  "value": "insert_below"
+                },
+                {
+                  "title": "Copy",
+                  "value": "copy"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "fix-spelling-and-grammar",
       "title": "Fix Spelling & Grammar",
       "description": "Fix Spelling and Grammar",
       "icon": "fix-spelling-and-grammar.png",
+      "commandType": "deprecated",
+      "showInCommandList": false,
+      "targetCommand": "writing_package|fix_spelling_and_grammar",
       "mode": "no-view",
       "accepts": [
         "text"
@@ -255,6 +347,72 @@
     },
     {
       "name": "improve-writing",
+      "title": "Improve Writing",
+      "description": "Improve Writing",
+      "showInCommandList": false,
+      "commandType": "deprecated",
+      "icon": "improve-writing.png",
+      "accepts": [
+        "text"
+      ],
+      "mode": "no-view",
+      "targetCommand": "chat_with_ai|command",
+      "aiPlugin": true,
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": false
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "LLM Model"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        }
+      ]
+    },
+    {
+      "name": "improve_writing",
       "title": "Improve Writing",
       "description": "Improve Writing",
       "icon": "improve-writing.png",
