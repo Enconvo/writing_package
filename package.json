@@ -142,9 +142,16 @@
           "description": "The model used to generate responses",
           "type": "extension",
           "required": false,
-          "default": "default",
+          "default": "enconvo_ai",
+          "title": "LLM Provider",
           "group": "AI Model",
-          "title": "AI Model"
+          "defaultOptions": [
+            {
+              "commandName": "enconvo_ai",
+              "modelName": "openai/gpt-4o-mini",
+              "temperature": 0
+            }
+          ]
         },
         {
           "name": "highlight_edits",
@@ -153,6 +160,31 @@
           "required": false,
           "title": "Highlight editing changes",
           "default": true
+        },
+        {
+          "name": "audio_play",
+          "title": "Text to Speech",
+          "description": "Audio Play",
+          "type": "group",
+          "preferences": [
+            {
+              "name": "auto_audio_play",
+              "label": "Automatically Play TTS Audio",
+              "description": "Automatically play result content",
+              "type": "checkbox",
+              "required": false,
+              "title": "Automatically Play TTS Audio",
+              "default": false
+            },
+            {
+              "name": "tts_providers",
+              "description": "The TTS provider to use.",
+              "type": "extension",
+              "required": false,
+              "default": "default",
+              "title": "TTS Provider"
+            }
+          ]
         },
         {
           "name": "post_action",

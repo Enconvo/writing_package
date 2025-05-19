@@ -20,26 +20,14 @@ export default async function main(req: Request) {
     promptMessage = await template.autoFormat(options)
 
     let messages: BaseChatMessage[] = [];
-    historyMessages = historyMessages || []
-    const hasMessages = historyMessages.length > 0
-
-    if (hasMessages) {
-        messages = [
-            new SystemMessage(`Your are a bot named ${environment.commandTitle}, your prompt is "${fixSpellingGrammarPrompt}",please respond based on the user's latest input. `),
-            ...historyMessages,
-            new UserMessage(message)
-        ]
-
-    } else {
-        messages = [new UserMessage(promptMessage)];
-    }
+    messages = [new UserMessage(promptMessage)];
 
     const llmProvider = await LLMProvider.fromEnv()
     const resultMessage = await llmProvider.stream({ messages });
 
-
     const originalText = message
     const fixedText = resultMessage.text()
+    console.log("fixedText", fixedText)
 
     let correctText = fixedText
 
