@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.117",
+  "version": "0.0.118",
   "description": "A package for writing",
   "title": "Writing Toolkit",
   "icon": "icon.png",
@@ -62,47 +62,6 @@
           "title": "User Message"
         },
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
-          "name": "hotkey",
-          "description": "The hotkey used to trigger the command",
-          "type": "hotkey",
-          "required": false,
-          "default": "",
-          "title": "Hotkey"
-        },
-        {
-          "name": "alias",
-          "description": "The alias used to trigger the command",
-          "type": "textfield",
-          "required": false,
-          "placeholder": "Add Alias",
-          "default": "",
-          "title": "Alias"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -120,10 +79,6 @@
       "mode": "no-view",
       "icon": "summarize.png",
       "targetCommand": "chat_with_ai|chat_command",
-      "aiPlugin": true,
-      "accepts": [
-        "text"
-      ],
       "preferences": [
         {
           "name": "prompt",
@@ -139,40 +94,8 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
+          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}, BEGIN:",
           "title": "User Message"
-        },
-        {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
-          "name": "hotkey",
-          "description": "The hotkey used to trigger the command",
-          "type": "hotkey",
-          "required": false,
-          "default": "",
-          "title": "Hotkey"
         },
         {
           "name": "responseLanguage",
@@ -206,30 +129,6 @@
       },
       "preferences": [
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -239,36 +138,45 @@
           "dataProxy": "translate|languages"
         },
         {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "group": "AI Model",
+          "title": "AI Model"
+        },
+        {
+          "name": "highlight_edits",
+          "description": "Select to highlight edits. Useful for commands that edit selected text or other inputs like 'Fix Spelling & Grammar'.",
+          "type": "checkbox",
+          "required": false,
+          "title": "Highlight editing changes",
+          "default": true
+        },
+        {
           "name": "post_action",
-          "title": "Post Action",
           "description": "Configure actions to perform after receiving response",
-          "type": "group",
-          "preferences": [
+          "type": "dropdown",
+          "required": false,
+          "title": "Post Action",
+          "default": "none",
+          "data": [
             {
-              "name": "post_action",
-              "description": "Configure actions to perform after receiving response",
-              "type": "dropdown",
-              "required": false,
-              "title": "Post Action",
-              "default": "none",
-              "data": [
-                {
-                  "title": "None",
-                  "value": "none"
-                },
-                {
-                  "title": "Paste",
-                  "value": "paste"
-                },
-                {
-                  "title": "Insert Below",
-                  "value": "insert_below"
-                },
-                {
-                  "title": "Copy",
-                  "value": "copy"
-                }
-              ]
+              "title": "None",
+              "value": "none"
+            },
+            {
+              "title": "Paste",
+              "value": "paste"
+            },
+            {
+              "title": "Insert Below",
+              "value": "insert_below"
+            },
+            {
+              "title": "Copy",
+              "value": "copy"
             }
           ]
         }
@@ -301,30 +209,6 @@
       },
       "aiPlugin": true,
       "preferences": [
-        {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
         {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
@@ -368,30 +252,6 @@
           "title": "User Message"
         },
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -430,30 +290,6 @@
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
           "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
-        },
-        {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
         },
         {
           "name": "responseLanguage",
@@ -496,30 +332,6 @@
           "title": "User Message"
         },
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -531,7 +343,7 @@
       ]
     },
     {
-      "name": "make-longer",
+      "name": "make_longer",
       "title": "Make Longer",
       "accepts": [
         "text"
@@ -560,30 +372,6 @@
           "title": "User Message"
         },
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -595,7 +383,7 @@
       ]
     },
     {
-      "name": "make-shorter",
+      "name": "make_shorter",
       "title": "Make Shorter",
       "description": "Make Shorter",
       "accepts": [
@@ -622,30 +410,6 @@
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
           "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
-        },
-        {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
         },
         {
           "name": "responseLanguage",
@@ -688,30 +452,6 @@
           "title": "User Message"
         },
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -750,30 +490,6 @@
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
           "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
           "title": "User Message"
-        },
-        {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
         },
         {
           "name": "responseLanguage",
@@ -816,30 +532,6 @@
           "title": "User Message"
         },
         {
-          "name": "auto_audio_play",
-          "description": "Automatically play result content",
-          "type": "checkbox",
-          "required": false,
-          "title": "Automatically Play TTS Audio",
-          "default": false
-        },
-        {
-          "name": "tts_providers",
-          "description": "The TTS provider to use.",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "TTS Provider"
-        },
-        {
-          "name": "llm",
-          "description": "The model used to generate responses",
-          "type": "extension",
-          "required": false,
-          "default": "default",
-          "title": "LLM Model"
-        },
-        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
@@ -852,7 +544,9 @@
     }
   ],
   "dependencies": {
-    "@enconvo/api": "link:/Users/ysnows/Documents/Project/enconvo.nodejs/enconvo_api"
+    "@enconvo/api": "link:/Users/ysnows/Documents/Project/enconvo.nodejs/enconvo_api",
+    "diff": "^8.0.1",
+    "jsdiff": "^1.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

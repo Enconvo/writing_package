@@ -1,10 +1,11 @@
-import { StringTemplate, Action, Command, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction, Response, res } from "@enconvo/api";
+import { StringTemplate, Action, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction, Response, res } from "@enconvo/api";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
+import { getDiffHtml } from "./diff_util.ts";
 
 
 export default async function main(req: Request) {
     const options: RequestOptions = await req.json();
-    let { post_action, input_text, selection_text, context, clean_result, history_messages: historyMessages } = options;
+    let { post_action, input_text, selection_text, context, clean_result, history_messages: historyMessages, highlight_edits } = options;
 
     let message = input_text || context || selection_text;
 
@@ -36,15 +37,24 @@ export default async function main(req: Request) {
     const llmProvider = await LLMProvider.fromEnv()
     const resultMessage = await llmProvider.stream({ messages });
 
-    const result = resultMessage.text()
 
-    let correctText = result
+    const originalText = message
+    const fixedText = resultMessage.text()
 
-    const lines = result.split("\n")
-    if (lines.length > 0) {
-        correctText = lines[0] || ''
-        correctText = correctText.trim().replace(/^['"]/, '').replace(/['"]$/, '')
-        correctText = correctText.replace(/^\*\*/, '').replace(/\*\*$/, '')
+    let correctText = fixedText
+
+    if (Array.isArray(resultMessage.content) && highlight_edits === true) {
+        resultMessage.content = resultMessage.content.map(item => {
+            if (item.type === 'text') {
+                const diffText = getDiffHtml(originalText, fixedText);
+                return {
+                    id: item.id,
+                    type: 'text',
+                    text: diffText
+                }
+            }
+            return item
+        })
     }
 
     const actions: ResponseAction[] = [
