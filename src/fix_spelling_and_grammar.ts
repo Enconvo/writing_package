@@ -1,4 +1,4 @@
-import { StringTemplate, Action, environment, RequestOptions, LLMProvider, BaseChatMessage, SystemMessage, UserMessage, ResponseAction, Response, res } from "@enconvo/api";
+import { StringTemplate, Action, RequestOptions, LLMProvider, BaseChatMessage, UserMessage, ResponseAction, Response, res, SystemMessage, environment } from "@enconvo/api";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
 import { getDiffHtml } from "./diff_util.ts";
 
@@ -21,6 +21,20 @@ export default async function main(req: Request) {
 
     let messages: BaseChatMessage[] = [];
     messages = [new UserMessage(promptMessage)];
+
+    historyMessages = historyMessages || []
+    const hasMessages = historyMessages.length > 0
+
+    if (hasMessages) {
+        messages = [
+            new SystemMessage(`Your are a bot named ${environment.commandTitle}, your prompt is "${fixSpellingGrammarPrompt}",please respond based on the user's latest input. `),
+            ...historyMessages,
+            new UserMessage(message)
+        ]
+
+    } else {
+        messages = [new UserMessage(promptMessage)];
+    }
 
     const llmProvider = await LLMProvider.fromEnv()
     const resultMessage = await llmProvider.stream({ messages });

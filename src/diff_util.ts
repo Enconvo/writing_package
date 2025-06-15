@@ -2,7 +2,7 @@ import { diffChars } from "diff";
 
 export function getDiffHtml(text1: string, text2: string): string {
     const diffs = diffChars(text1, text2);
-    let html = '';
+    let html = '<div style="font-family: monospace;">';
     // Iterate through each diff part and generate HTML with styling
     for (const part of diffs) {
         if (part.added) {
@@ -16,5 +16,6 @@ export function getDiffHtml(text1: string, text2: string): string {
             html += `<span >${part.value}</span>`;
         }
     }
+    html += '</div>';
     return html;
 }
