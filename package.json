@@ -57,6 +57,22 @@
           "title": "User Message"
         },
         {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "enconvo_ai",
+          "title": "LLM Provider",
+          "group": "AI Model",
+          "defaultOptions": [
+            {
+              "commandName": "enconvo_ai",
+              "modelName": "openai/gpt-4o-mini",
+              "temperature": 0
+            }
+          ]
+        },
+        {
           "name": "responseLanguage",
           "description": "The language used to force LLM to respond",
           "type": "dropdown",
