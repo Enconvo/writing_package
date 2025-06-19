@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.135",
+  "version": "0.0.137",
   "description": "A package for writing",
   "title": "Writing Toolkit",
   "icon": "icon.png",
@@ -19,7 +19,7 @@
       "description": "Give An Emoji Suggestion for given text",
       "mode": "no-view",
       "icon": "emoji.png",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
@@ -222,6 +222,49 @@
               "value": "copy"
             }
           ]
+        },
+        {
+          "name": "modifier_flags_actions",
+          "description": "When executing on PopBar, if the corresponding modifier flags are pressed, the corresponding action will be executed after the main logic is completed",
+          "type": "dynamic_group",
+          "title": "Modifier Flags Actions",
+          "default": {
+            "copy": {
+              "custom_title": "Copy",
+              "modifier_flags": "option",
+              "modifier_flags_action": "copy"
+            },
+            "shift": {
+              "custom_title": "Shift",
+              "modifier_flags": "shift",
+              "modifier_flags_action": "paste"
+            }
+          },
+          "preferences": [
+            {
+              "name": "modifier_flags",
+              "title": "Modifier Flags",
+              "description": "The modifier flags to perform the action with",
+              "type": "dropdown",
+              "default": "option",
+              "dataProxy": "system|modifier_flags",
+              "dataProxyConfig": {
+                "needRefresh": false
+              }
+            },
+            {
+              "name": "modifier_flags_action",
+              "description": "Action to perform ",
+              "type": "dropdown",
+              "required": false,
+              "title": "Action to perform",
+              "default": "copy",
+              "dataProxy": "system|modifier_flags_actions",
+              "dataProxyConfig": {
+                "needRefresh": false
+              }
+            }
+          ]
         }
       ]
     },
@@ -301,6 +344,49 @@
           ]
         },
         {
+          "name": "modifier_flags_actions",
+          "description": "When executing on PopBar, if the corresponding modifier flags are pressed, the corresponding action will be executed after the main logic is completed",
+          "type": "dynamic_group",
+          "title": "Modifier Flags Actions",
+          "default": {
+            "copy": {
+              "custom_title": "Copy",
+              "modifier_flags": "option",
+              "modifier_flags_action": "copy"
+            },
+            "shift": {
+              "custom_title": "Shift",
+              "modifier_flags": "shift",
+              "modifier_flags_action": "paste"
+            }
+          },
+          "preferences": [
+            {
+              "name": "modifier_flags",
+              "title": "Modifier Flags",
+              "description": "The modifier flags to perform the action with",
+              "type": "dropdown",
+              "default": "option",
+              "dataProxy": "system|modifier_flags",
+              "dataProxyConfig": {
+                "needRefresh": false
+              }
+            },
+            {
+              "name": "modifier_flags_action",
+              "description": "Action to perform ",
+              "type": "dropdown",
+              "required": false,
+              "title": "Action to perform",
+              "default": "copy",
+              "dataProxy": "system|modifier_flags_actions",
+              "dataProxyConfig": {
+                "needRefresh": false
+              }
+            }
+          ]
+        },
+        {
           "name": "hotkey",
           "description": "The hotkey to trigger the command",
           "type": "hotkey",
@@ -312,84 +398,12 @@
       ]
     },
     {
-      "name": "fix-spelling-and-grammar",
-      "title": "Fix Spelling & Grammar",
-      "description": "Fix Spelling and Grammar",
-      "icon": "fix-spelling-and-grammar.png",
-      "commandType": "deprecated",
-      "showInCommandList": false,
-      "targetCommand": "writing_package|fix_spelling_and_grammar",
-      "mode": "no-view",
-      "parameters": {
-        "type": "object",
-        "properties": {
-          "input_text": {
-            "type": "string",
-            "description": "The text to fix spelling and grammar"
-          },
-          "selection_text": {
-            "type": "string",
-            "description": "The selected text to fix spelling and grammar"
-          }
-        }
-      },
-      "preferences": [
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
-        }
-      ]
-    },
-    {
-      "name": "improve-writing",
-      "title": "Improve Writing",
-      "description": "Improve Writing",
-      "showInCommandList": false,
-      "commandType": "deprecated",
-      "icon": "improve-writing.png",
-      "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
-      "preferences": [
-        {
-          "name": "prompt",
-          "description": "The prompt used to generate responses",
-          "type": "multiline_textfield",
-          "required": false,
-          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:",
-          "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
-        }
-      ]
-    },
-    {
       "name": "improve_writing",
       "title": "Improve Writing",
       "description": "Improve Writing",
       "icon": "improve-writing.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
@@ -398,24 +412,6 @@
           "required": false,
           "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:",
           "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
         }
       ]
     },
@@ -425,7 +421,7 @@
       "description": "Improve Writing",
       "icon": "polish.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
@@ -434,24 +430,6 @@
           "required": false,
           "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language. . I will give you the input:",
           "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
         }
       ]
     },
@@ -461,33 +439,15 @@
       "description": "expand the text to make it longer",
       "icon": "longer.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Expand upon the given content by adding details, examples, or explanations to enhance its depth and clarity.\n\n- Ensure the original message's intent and meaning are preserved while adding more substance.\n- Focus on incorporating additional relevant information or context that supports the primary ideas.\n\n# Steps\n\n1. Identify the key points and ideas in the original content.\n2. Research or brainstorm relevant information to elaborate on those key points.\n3. Integrate the additional information seamlessly into the text.\n4. Revise the structure if necessary to improve flow and coherence.\n\n# Output Format\n\nThe output should be in paragraph format, significantly longer than the original content. Aim for at least 50% more length while ensuring readability and engagement.\n\n# Examples\n\nExample 1:\n- **Input:** 'Cats are great pets.'\n- **Output:** 'Cats are wonderful pets that bring joy and companionship to many households. They are known for their playful nature, independence, and ability to bond with their owners. Many cat owners appreciate their low maintenance compared to other pets, as cats often groom themselves and require less attention. Furthermore, studies have shown that having a cat can reduce stress and provide comfort during tough times.'\n\nExample 2:\n- **Input:** 'Exercise is important.'\n- **Output:** 'Exercise plays a crucial role in maintaining both physical and mental health. Regular physical activity helps improve cardiovascular health, strengthen muscles, and enhance flexibility. It also contributes to better mental health by releasing endorphins, which can alleviate feelings of anxiety and depression. Incorporating a variety of exercises, such as aerobic activities, strength training, and flexibility exercises, can lead to an overall healthier lifestyle.'\n\n# Notes\n\n- Aim for clarity and depth; avoid filler content that doesn't contribute meaningful information.\n- Maintain the original message’s tone and style while enriching the content.",
+          "default": "Expand upon the given content by adding details, examples, or explanations to enhance its depth and clarity.\n\n- Ensure the original message's intent and meaning are preserved while adding more substance.\n- Focus on incorporating additional relevant information or context that supports the primary ideas.\n\n# Steps\n\n1. Identify the key points and ideas in the original content.\n2. Research or brainstorm relevant information to elaborate on those key points.\n3. Integrate the additional information seamlessly into the text.\n4. Revise the structure if necessary to improve flow and coherence.\n\n# Output Format\n\nThe output should be in paragraph format, significantly longer than the original content. Aim for at least 50% more length while ensuring readability and engagement.",
           "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
         }
       ]
     },
@@ -497,33 +457,15 @@
       "description": "Make Shorter",
       "icon": "shorter.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
           "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\nExample:\nInput: ```Donald Trump has made a statement in which he commits to hiring a larger number of agents who are part of the Border Patrol, in addition to proposing a significant increase in the salaries these agents receive.```\nOutput:  ```Trump promises to hire more Border Patrol agents and increase salaries.```\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter. I will give you the input:",
+          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter. I will give you the input:",
           "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
         }
       ]
     },
@@ -531,9 +473,9 @@
       "name": "change_tone_to_friendly",
       "title": "Change Tone Friendly",
       "description": "Change Tone to Friendly",
-      "icon": "tone.png",
+      "icon": "friendly.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
@@ -542,24 +484,6 @@
           "required": false,
           "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\n I will give you the input:",
           "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
         }
       ]
     },
@@ -567,9 +491,9 @@
       "name": "change_tone_to_confident",
       "title": "Change Tone Confident",
       "description": "Change Tone to Confident",
-      "icon": "tone.png",
+      "icon": "confident.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
@@ -578,24 +502,6 @@
           "required": false,
           "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\n I will give you the input:",
           "title": "Prompt"
-        },
-        {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "type": "multiline_textfield",
-          "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
-        },
-        {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
-          "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
         }
       ]
     },
@@ -603,9 +509,9 @@
       "name": "change_tone_to_casual",
       "title": "Change Tone Casual",
       "description": "Change Tone to Casual",
-      "icon": "tone.png",
+      "icon": "casual.png",
       "mode": "no-view",
-      "targetCommand": "chat_with_ai|command",
+      "targetCommand": "writing_package|ai_edit",
       "preferences": [
         {
           "name": "prompt",
@@ -614,24 +520,156 @@
           "required": false,
           "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language.",
           "title": "Prompt"
-        },
+        }
+      ]
+    },
+    {
+      "name": "proofread",
+      "title": "Proofread",
+      "description": "Proofread the text",
+      "icon": "proofread.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
         {
-          "name": "user_prompt_1",
-          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
           "type": "multiline_textfield",
           "required": false,
-          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}",
-          "title": "User Message"
+          "default": "Act as a professional proofreader. Carefully review the text for:\n- Spelling errors\n- Grammar mistakes\n- Punctuation issues\n- Syntax problems\n- Consistency in style and formatting\n- Clarity and readability\n\nCorrect any errors while preserving the original meaning, tone, and style. Use the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
+        }
+      ]
+    },
+    {
+      "name": "rewrite",
+      "title": "Rewrite",
+      "description": "Rewrite the text",
+      "icon": "rewrite.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a skilled content writer. Completely rewrite the text while:\n- Maintaining the core message and meaning\n- Using fresh vocabulary and sentence structures\n- Improving clarity and flow\n- Ensuring proper grammar and punctuation\n- Keeping the same tone and style\n- Preserving the approximate length\n\nUse the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
+        }
+      ]
+    },
+    {
+      "name": "change_tone_to_professional",
+      "title": "Change Tone Professional",
+      "description": "Change Tone to Professional",
+      "icon": "professional.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use professional, formal, and polished tone of voice\n- Employ sophisticated vocabulary where appropriate\n- Use complete sentences and proper grammar\n- Avoid contractions, slang, or casual expressions\n- Maintain objective and respectful language\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\n\nUse the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
+        }
+      ]
+    },
+    {
+      "name": "make_concise",
+      "title": "Make Concise",
+      "description": "Make the text more concise",
+      "icon": "icon.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a content editor. Make the text more concise by:\n- Removing unnecessary words and phrases\n- Combining redundant sentences\n- Eliminating filler words and verbose expressions\n- Keeping only essential information\n- Maintaining the core message and meaning\n- Preserving clarity and readability\n- Using active voice where possible\n\nThe goal is to reduce length while retaining all important information. Use the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
+        }
+      ]
+    },
+    {
+      "name": "extract_key_points",
+      "title": "Extract Key Points",
+      "description": "Extract key points from the text",
+      "icon": "key_points.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as an information analyst. Extract the key points from the text by:\n- Identifying the most important ideas and concepts\n- Organizing them in a clear, bulleted format\n- Using concise and precise language\n- Maintaining the logical order when possible\n- Ensuring each point is distinct and meaningful\n- Preserving the original context and meaning\n\nPresent the key points as a well-structured list. Use the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
         },
         {
-          "name": "responseLanguage",
-          "description": "The language used to force LLM to respond",
-          "type": "dropdown",
+          "name": "highlight_edits",
+          "description": "Select to highlight edits. Useful for commands that edit selected text or other inputs like 'Fix Spelling & Grammar'.",
+          "type": "checkbox",
           "required": false,
-          "title": "Response Language",
-          "default": "auto",
-          "dataProxy": "translate|languages"
+          "title": "Highlight editing changes",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "convert_to_list",
+      "title": "Convert to List",
+      "description": "Convert the text to a list format",
+      "icon": "list.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a content formatter. Convert the text into a well-structured list by:\n- Breaking down the content into logical items\n- Using appropriate list format (bulleted or numbered)\n- Maintaining the original information and meaning\n- Ensuring each list item is clear and concise\n- Organizing items in a logical sequence\n- Preserving important details while improving readability\n\nChoose the most appropriate list format based on the content type. Use the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "highlight_edits",
+          "description": "Select to highlight edits. Useful for commands that edit selected text or other inputs like 'Fix Spelling & Grammar'.",
+          "type": "checkbox",
+          "required": false,
+          "title": "Highlight editing changes",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "convert_to_table",
+      "title": "Convert to Table",
+      "description": "Convert the text to a table format",
+      "icon": "table.png",
+      "mode": "no-view",
+      "targetCommand": "writing_package|ai_edit",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "The prompt used to generate responses",
+          "type": "multiline_textfield",
+          "required": false,
+          "default": "Act as a data organizer. Convert the text into a well-structured table by:\n- Identifying data that can be tabulated\n- Creating appropriate column headers\n- Organizing information into rows and columns\n- Using markdown table format\n- Maintaining all original information\n- Ensuring the table is clear and easy to read\n- Adding headers that accurately describe the data\n\nIf the text doesn't contain tabular data, organize it in a way that makes sense in table format. Use the text's original language.\n\nI will give you the input:",
+          "title": "Prompt"
+        },
+        {
+          "name": "highlight_edits",
+          "description": "Select to highlight edits. Useful for commands that edit selected text or other inputs like 'Fix Spelling & Grammar'.",
+          "type": "checkbox",
+          "required": false,
+          "title": "Highlight editing changes",
+          "default": false
         }
       ]
     }

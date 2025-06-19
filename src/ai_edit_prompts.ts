@@ -32,7 +32,7 @@ Output:
     Strictly adhere to the output format. Only return the modified text without any additional explanations or metadata.
 
 Instruction:
-{{instruction}}
+    {{instruction}}
 
 Input:
 {{selection_text}}

@@ -1,4 +1,4 @@
-import { StringTemplate, Action, RequestOptions, LLMProvider, BaseChatMessage, UserMessage, ResponseAction, Response, res, SystemMessage, environment } from "@enconvo/api";
+import { Clipboard, StringTemplate, Action, RequestOptions, LLMProvider, BaseChatMessage, UserMessage, ResponseAction, Response, res, SystemMessage, environment, EnconvoResponse, showHUD, SmartBar } from "@enconvo/api";
 import { fixSpellingGrammarPrompt } from "./prompts.ts";
 import { getDiffHtml } from "./diff_util.ts";
 
@@ -66,6 +66,10 @@ export default async function main(req: Request) {
     ]
 
     res.handlePostAction(correctText, post_action)
+    const modifierFlagsResult = res.handleModifierFlags({ options, text: correctText })
+
+
 
     return Response.messages([resultMessage], actions);
 }
+
