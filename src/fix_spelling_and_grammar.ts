@@ -40,7 +40,7 @@ export default async function main(req: Request) {
     const resultMessage = await llmProvider.stream({ messages });
 
     const originalText = message
-    const fixedText = resultMessage.text()
+    const fixedText = resultMessage.text
     console.log("fixedText", fixedText)
 
     let correctText = fixedText

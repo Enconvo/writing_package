@@ -1,7 +1,6 @@
-import { Clipboard, StringTemplate, Action, RequestOptions, LLMProvider, BaseChatMessage, UserMessage, ResponseAction, Response, res, SystemMessage, environment, ChatMessageContent, EnconvoResponse, showHUD } from "@enconvo/api";
+import { StringTemplate, Action, RequestOptions, LLMProvider, BaseChatMessage, UserMessage, ResponseAction, Response, res, ChatMessageContent } from "@enconvo/api";
 import { getDiffHtml } from "./diff_util.ts";
 import { aiEditPrompt } from "./ai_edit_prompts.ts";
-import { exec } from "child_process";
 
 
 interface AiEditOptions extends RequestOptions {
@@ -65,9 +64,11 @@ export default async function main(req: Request) {
     const resultMessage = await llmProvider.stream({ messages });
 
     const originalText = inputText
-    const fixedText = resultMessage.text()
+    const fixedText = resultMessage.text
     console.log("fixedText", fixedText)
     let correctText = fixedText
+
+
 
     if (Array.isArray(resultMessage.content) && highlight_edits === true && originalText.length > 0) {
         resultMessage.content = resultMessage.content.map(item => {
@@ -94,7 +95,6 @@ export default async function main(req: Request) {
     res.handlePostAction(correctText, post_action)
 
     const modifierFlagsResult = res.handleModifierFlags({ options, text: correctText })
-
 
     return Response.messages([resultMessage], actions);
 }
