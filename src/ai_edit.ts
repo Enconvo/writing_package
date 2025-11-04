@@ -12,7 +12,7 @@ let inputText: string = ""
 export default async function main(req: Request) {
     const options: AiEditOptions = await req.json();
     let { post_action, input_text, selection_text, history_messages: historyMessages, highlight_edits } = options;
-    console.log("options", options)
+
     let instruction: string = ''
 
     if (historyMessages && historyMessages.length === 0) {
