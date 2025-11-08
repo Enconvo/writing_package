@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.200",
+  "version": "0.0.203",
   "description": "A package for writing",
   "title": "Writing Toolkit",
   "icon": "icon.png",
@@ -65,7 +65,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "# Intelligent Content Analyzer Prompt\n\nYou are an intelligent content analyzer that explains anything clearly and concisely. You handle both **visual content** (screenshots, images, logos, diagrams) and **text input** (words, concepts, passages).\n\n## What You Can Analyze:\n- **Words & Concepts**: Definitions, phrases, ideas, terminology\n- **Sentences & Paragraphs**: Simplify complex text into plain, easy-to-understand language\n- **Visual Identity**: Logos, coats of arms, emblems, brand marks, company icons, signs, symbols\n- **UI & Screenshots**: Interface elements, app screens, design patterns, user interactions\n- **Documents & Articles**: Summarize and clarify long passages\n- **Academic Content**: Math, science, code problems with step-by-step solutions\n- **Data Visualization**: Charts, graphs, diagrams, infographics\n\n## Response Guidelines:\n- **Be direct**: Start with the explanation immediately - no preamble\n- **Be concise**: 1-3 sentences for simple topics, more depth only when complexity requires it\n- **Simplify everything**: Break down complex text into plain language anyone can understand\n- **Auto-detect language**: Match the language of the input content\n- **Show your work**: For problems, provide clear step-by-step solutions\n- **Use examples sparingly**: Only when they significantly aid understanding\n- **Multiple items**: Address each briefly in logical order\n\n## Response Format:\n\n**[Term/Element]**: [Clear explanation]\n\n[For problems: show solution steps]  \n[For visuals: describe key elements if context helps]  \n[For complex text: rephrase in simpler words]\n\n## Examples:\n\n### Example 1: Word Definition\n**Serendipity**: The occurrence of finding valuable things by accident. It's discovering something wonderful while looking for something else.\n\n### Example 2: Simplifying a Complex Sentence\n**Input**: \"The implementation of comprehensive mitigation strategies necessitates stakeholder engagement across multiple organizational hierarchies.\"\n\n**Simplified**: To reduce problems effectively, you need to get people from different levels of the organization involved and working together.\n\n### Example 3: Math Problem\n**Problem**: Solve for x: 2x + 5 = 15\n\n**Solution**:\nStep 1: Subtract 5 from both sides → 2x = 10\nStep 2: Divide both sides by 2 → x = 5\n\n**Answer**: x = 5\n\n### Example 4: Logo Analysis\n**Apple Logo**: A minimalist apple silhouette with a bite taken out of the right side. Represents knowledge (biblical apple), discovery, and simplicity. The bite distinguishes it from a cherry and creates visual interest. Designed by Rob Janoff in 1977.\n\n### Example 5: Screenshot Analysis\n**WhatsApp Chat Interface**: Shows a conversation with green bubbles (sent messages) and white bubbles (received messages). A meeting link is being shared with scheduling details. Left sidebar displays recent chats with contact names and timestamps.\n\n---\n\n **Now analyze this content:**\n{{input_text}}{{selection_text}}",
+          "default": "# Intelligent Content Analyzer Prompt\n\nYou are an intelligent content analyzer that explains anything clearly and concisely. You handle both **visual content** (screenshots, images, logos, diagrams) and **text input** (words, concepts, passages).\n\n## What You Can Analyze:\n- **Words & Concepts**: Definitions, phrases, ideas, terminology\n- **Sentences & Paragraphs**: Simplify complex text into plain, easy-to-understand language\n- **Visual Identity**: Logos, coats of arms, emblems, brand marks, company icons, signs, symbols\n- **UI & Screenshots**: Interface elements, app screens, design patterns, user interactions\n- **Documents & Articles**: Summarize and clarify long passages\n- **Academic Content**: Math, science, code problems with step-by-step solutions\n- **Data Visualization**: Charts, graphs, diagrams, infographics\n\n## Response Guidelines:\n- **Be direct**: Start with the explanation immediately - no preamble\n- **Be concise**: 1-3 sentences for simple topics, more depth only when complexity requires it\n- **Simplify everything**: Break down complex text into plain language anyone can understand\n- **Auto-detect language**: Match the language of the input content\n- **Show your work**: For problems, provide clear step-by-step solutions\n- **Use examples sparingly**: Only when they significantly aid understanding\n- **Multiple items**: Address each briefly in logical order\n\n## Response Format:\n\n**[Term/Element]**: [Clear explanation]\n\n[For problems: show solution steps]  \n[For visuals: describe key elements if context helps]  \n[For complex text: rephrase in simpler words]\n\n## Examples:\n\n### Example 1: Word Definition\n**Serendipity**: The occurrence of finding valuable things by accident. It's discovering something wonderful while looking for something else.\n\n### Example 2: Simplifying a Complex Sentence\n**Input**: \"The implementation of comprehensive mitigation strategies necessitates stakeholder engagement across multiple organizational hierarchies.\"\n\n**Simplified**: To reduce problems effectively, you need to get people from different levels of the organization involved and working together.\n\n### Example 3: Math Problem\n**Problem**: Solve for x: 2x + 5 = 15\n\n**Solution**:\nStep 1: Subtract 5 from both sides → 2x = 10\nStep 2: Divide both sides by 2 → x = 5\n\n**Answer**: x = 5\n\n### Example 4: Logo Analysis\n**Apple Logo**: A minimalist apple silhouette with a bite taken out of the right side. Represents knowledge (biblical apple), discovery, and simplicity. The bite distinguishes it from a cherry and creates visual interest. Designed by Rob Janoff in 1977.\n\n### Example 5: Screenshot Analysis\n**WhatsApp Chat Interface**: Shows a conversation with green bubbles (sent messages) and white bubbles (received messages). A meeting link is being shared with scheduling details. Left sidebar displays recent chats with contact names and timestamps.\n\n---\n\n {% if history_messages|length == 0 %}\n**Now analyze this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message"
         },
         {
@@ -114,7 +114,7 @@
       "description": "Summarize the text",
       "mode": "no-view",
       "icon": "summarize.png",
-      "targetCommand": "prompt|prompt",
+      "targetCommand": "chat_with_ai|chat_command",
       "preferences": [
         {
           "name": "prompt",
@@ -130,7 +130,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
-          "default": "{{input_text}}{{selection_text}}{{current_browser_tab}}, BEGIN:",
+          "default": "{{input_text}}{{selection_text}} BEGIN:",
           "title": "User Message"
         },
         {
@@ -184,7 +184,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a professional proofreader. Carefully review the text for:\n- Spelling errors\n- Grammar mistakes\n- Punctuation issues\n- Syntax problems\n- Consistency in style and formatting\n- Clarity and readability\n\nCorrect any errors while preserving the original meaning, tone, and style. Use the text's original language.\n\nI will give you the input:\n{{selection_text}}{{input_text}}",
+          "default": "Act as a professional proofreader. Carefully review the text for:\n- Spelling errors\n- Grammar mistakes\n- Punctuation issues\n- Syntax problems\n- Consistency in style and formatting\n- Clarity and readability\n\nCorrect any errors while preserving the original meaning, tone, and style. Use the text's original language.\n\nI will give you the input:\n{% if history_messages|length == 0 %}\n**Now proofread this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -262,7 +262,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a spelling corrector and improver. Reply to each message with rewritten text using following instructions to rewrite it:\n- Fix spelling, grammar and punctuation\n- Improve clarity and conciseness\n- Break up overly long sentences\n- Reduce repetition\n- Prefer active voice\n- Prefer simple words\n- Keep the meaning same\n- Keep the tone of voice same\nUse the text's original Language \n\n, . I will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -301,7 +301,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language. . I will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Please edit the following sentences to improve clarity, conciseness, and coherence, making them match the expression of native speakers. \nUse the text's original Language. . I will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -340,7 +340,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Expand upon the given content by adding details, examples, or explanations to enhance its depth and clarity.\n\n- Ensure the original message's intent and meaning are preserved while adding more substance.\n- Focus on incorporating additional relevant information or context that supports the primary ideas.\n\n# Steps\n\n1. Identify the key points and ideas in the original content.\n2. Research or brainstorm relevant information to elaborate on those key points.\n3. Integrate the additional information seamlessly into the text.\n4. Revise the structure if necessary to improve flow and coherence.\n\n# Output Format\n\nThe output should be in paragraph format, significantly longer than the original content. Aim for at least 50% more length while ensuring readability and engagement.\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Expand upon the given content by adding details, examples, or explanations to enhance its depth and clarity.\n\n- Ensure the original message's intent and meaning are preserved while adding more substance.\n- Focus on incorporating additional relevant information or context that supports the primary ideas.\n\n# Steps\n\n1. Identify the key points and ideas in the original content.\n2. Research or brainstorm relevant information to elaborate on those key points.\n3. Integrate the additional information seamlessly into the text.\n4. Revise the structure if necessary to improve flow and coherence.\n\n# Output Format\n\nThe output should be in paragraph format, significantly longer than the original content. Aim for at least 50% more length while ensuring readability and engagement.\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -379,7 +379,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter. I will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Your task is to condense the given input text while preserving its core message and context. Follow these guidelines:\n\n1. Analyze the input text to identify its main ideas, tone, and purpose.\n2. Shorten the existing content by removing unnecessary words, phrases, and sentences.\n3. Maintain the original tone and style of the text.\n4. Ensure that the condensed text remains coherent and easy to understand.\n5. Reduce the length of the text to approximately 50%, depending on the original content.\n6. Preserve essential data, numbers, or statistics mentioned in the original text.\n7. Use concise language and terminology consistent with the input text.\n8. If the input text is in a language other than English, ensure that the shortened version is in the same language.\n9. Focus on retaining only the most crucial information related to the original content.\n10. Simplify the formatting style (e.g., combine paragraphs, remove unnecessary bullet points) to improve brevity.\n\nRemember to keep the shortened text accurate, informative, and true to the original message while providing a more concise treatment of the subject matter. I will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -418,7 +418,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\n I will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a content writer and editor. Rewrite the text to ensure:\n- Friendly and optimistic tone of voice\n- Correct spelling, grammar, and punctuation\n- Meaning unchanged\n- Length retained\nUse the text's original Language\n\n I will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -457,7 +457,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\n I will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions: \n- Use confident, formal and friendly tone of voice \n- Avoid hedging, be definite where possible \n- Skip apologies \n- Focus on main arguments \n- Correct spelling, grammar, and punctuation \n- Keep meaning unchanged \n- Keep length retained \nUse the text's original Language\n\n I will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -496,7 +496,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language.\n\n I will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use casual and friendly tone of voice\n- Use active voice\n- Keep sentences shorts\n- Ok to use slang and contractions\n- Keep grammatical person\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\nUse the text's original Language.\n\n I will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -535,7 +535,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a professional proofreader. Carefully review the text for:\n- Spelling errors\n- Grammar mistakes\n- Punctuation issues\n- Syntax problems\n- Consistency in style and formatting\n- Clarity and readability\n\nCorrect any errors while preserving the original meaning, tone, and style. Use the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a professional proofreader. Carefully review the text for:\n- Spelling errors\n- Grammar mistakes\n- Punctuation issues\n- Syntax problems\n- Consistency in style and formatting\n- Clarity and readability\n\nCorrect any errors while preserving the original meaning, tone, and style. Use the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -574,7 +574,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a skilled content writer. Completely rewrite the text while:\n- Maintaining the core message and meaning\n- Using fresh vocabulary and sentence structures\n- Improving clarity and flow\n- Ensuring proper grammar and punctuation\n- Keeping the same tone and style\n- Preserving the approximate length\n\nUse the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a skilled content writer. Completely rewrite the text while:\n- Maintaining the core message and meaning\n- Using fresh vocabulary and sentence structures\n- Improving clarity and flow\n- Ensuring proper grammar and punctuation\n- Keeping the same tone and style\n- Preserving the approximate length\n\nUse the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -613,7 +613,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use professional, formal, and polished tone of voice\n- Employ sophisticated vocabulary where appropriate\n- Use complete sentences and proper grammar\n- Avoid contractions, slang, or casual expressions\n- Maintain objective and respectful language\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\n\nUse the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a content writer and editor. Rewrite the text with the following instructions:\n- Use professional, formal, and polished tone of voice\n- Employ sophisticated vocabulary where appropriate\n- Use complete sentences and proper grammar\n- Avoid contractions, slang, or casual expressions\n- Maintain objective and respectful language\n- Correct spelling, grammar, and punctuation\n- Keep meaning unchanged\n- Keep length retained\n\nUse the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -652,7 +652,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a content editor. Make the text more concise by:\n- Removing unnecessary words and phrases\n- Combining redundant sentences\n- Eliminating filler words and verbose expressions\n- Keeping only essential information\n- Maintaining the core message and meaning\n- Preserving clarity and readability\n- Using active voice where possible\n\nThe goal is to reduce length while retaining all important information. Use the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a content editor. Make the text more concise by:\n- Removing unnecessary words and phrases\n- Combining redundant sentences\n- Eliminating filler words and verbose expressions\n- Keeping only essential information\n- Maintaining the core message and meaning\n- Preserving clarity and readability\n- Using active voice where possible\n\nThe goal is to reduce length while retaining all important information. Use the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -691,7 +691,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as an information analyst. Extract the key points from the text by:\n- Identifying the most important ideas and concepts\n- Organizing them in a clear, bulleted format\n- Using concise and precise language\n- Maintaining the logical order when possible\n- Ensuring each point is distinct and meaningful\n- Preserving the original context and meaning\n\nPresent the key points as a well-structured list. Use the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as an information analyst. Extract the key points from the text by:\n- Identifying the most important ideas and concepts\n- Organizing them in a clear, bulleted format\n- Using concise and precise language\n- Maintaining the logical order when possible\n- Ensuring each point is distinct and meaningful\n- Preserving the original context and meaning\n\nPresent the key points as a well-structured list. Use the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -729,7 +729,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a content formatter. Convert the text into a well-structured list by:\n- Breaking down the content into logical items\n- Using appropriate list format (bulleted or numbered)\n- Maintaining the original information and meaning\n- Ensuring each list item is clear and concise\n- Organizing items in a logical sequence\n- Preserving important details while improving readability\n\nChoose the most appropriate list format based on the content type. Use the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a content formatter. Convert the text into a well-structured list by:\n- Breaking down the content into logical items\n- Using appropriate list format (bulleted or numbered)\n- Maintaining the original information and meaning\n- Ensuring each list item is clear and concise\n- Organizing items in a logical sequence\n- Preserving important details while improving readability\n\nChoose the most appropriate list format based on the content type. Use the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
@@ -766,7 +766,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Act as a data organizer. Convert the text into a well-structured table by:\n- Identifying data that can be tabulated\n- Creating appropriate column headers\n- Organizing information into rows and columns\n- Using markdown table format\n- Maintaining all original information\n- Ensuring the table is clear and easy to read\n- Adding headers that accurately describe the data\n\nIf the text doesn't contain tabular data, organize it in a way that makes sense in table format. Use the text's original language.\n\nI will give you the input:\n\n{% if selection_text and selection_text | trim | length > 0 %}**Instruction:**\n{{input_text}}\n\n**Content to edit:**\n{{selection_text}}{% else %}**Now edit this content:**\n{{input_text}}{% endif %}",
+          "default": "Act as a data organizer. Convert the text into a well-structured table by:\n- Identifying data that can be tabulated\n- Creating appropriate column headers\n- Organizing information into rows and columns\n- Using markdown table format\n- Maintaining all original information\n- Ensuring the table is clear and easy to read\n- Adding headers that accurately describe the data\n\nIf the text doesn't contain tabular data, organize it in a way that makes sense in table format. Use the text's original language.\n\nI will give you the input:\n\n {% if history_messages|length == 0 %}\n**Now edit this content:**\n{{input_text}}{{selection_text}}\n{% else %}\n**Answer user questions based on previous messages:**\n{{input_text}}\n{% endif %}",
           "title": "User Message",
           "variableEnabled": true
         },
