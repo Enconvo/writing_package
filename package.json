@@ -1135,7 +1135,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Please clean up the following voice-transcribed text.\n{{input_text}}",
+          "default": "Please clean up the following voice-transcribed text.\n\"\"\"{{input_text}}\"\"\"",
           "title": "User Message",
           "variableEnabled": true,
           "isCollapsable": true,
@@ -1152,7 +1152,7 @@
           "defaultOptions": [
             {
               "commandName": "enconvo_ai",
-              "modelName": "mistral/mistral-small-latest",
+              "modelName": "google/gemini-3.1-flash-lite-preview",
               "temperature": 0
             }
           ]
@@ -1199,6 +1199,22 @@
               "title": "Message Count Limit",
               "visibility": "hidden",
               "default": 1
+            },
+            {
+              "name": "dictionary_words",
+              "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+              "type": "json",
+              "required": false,
+              "placeholder": "The prompt content helps set the behavior of the assistant.",
+              "storeType": "preference-key:dictionary",
+              "visibility": "hidden",
+              "default": [
+                {
+                  "word": "Enconvo",
+                  "description": "An MacOS AI Assistant App"
+                }
+              ],
+              "title": "Dictionary"
             },
             {
               "name": "highlight_edits",
@@ -1252,7 +1268,7 @@
       "name": "dictation_translate",
       "title": "Dictation Translate",
       "description": "Translate voice input text into the target language",
-      "icon": "polish.png",
+      "icon": "dictation_translate.png",
       "mode": "no-view",
       "targetCommand": "chat_with_ai|command",
       "preferences": [
@@ -1273,7 +1289,7 @@
           "type": "multiline_textfield",
           "required": false,
           "placeholder": "The prompt content helps set the behavior of the assistant.",
-          "default": "Please translate the following voice-transcribed text.\n{{input_text}}",
+          "default": "Translate the following text between {{sourceLang.title}} and {{targetLang.title}}.\n\nRules:\n- Detect the main language of the text (the language with the highest percentage of content).\n- If the main language is {{sourceLang.title}}, translate to {{targetLang.title}}.\n- If the main language is {{targetLang.title}}, translate to {{sourceLang.title}}.\n- Use natural and idiomatic expressions.\n- Output only the translated text, no explanations.\n\nText:\n\"\"\"{{input_text}}\"\"\"",
           "title": "User Message",
           "variableEnabled": true,
           "isCollapsable": true,
@@ -1290,10 +1306,30 @@
           "defaultOptions": [
             {
               "commandName": "enconvo_ai",
-              "modelName": "mistral/mistral-small-latest",
+              "modelName": "google/gemini-3.1-flash-lite-preview",
               "temperature": 0
             }
           ]
+        },
+        {
+          "name": "sourceLang",
+          "description": "The default language to translate from",
+          "group": "AI Model",
+          "type": "dropdown",
+          "required": false,
+          "title": "Source Language",
+          "default": "auto",
+          "dataProxy": "translate|languages"
+        },
+        {
+          "name": "targetLang",
+          "description": "The default language to translate to",
+          "type": "dropdown",
+          "required": false,
+          "group": "AI Model",
+          "title": "Target Language",
+          "default": "ja",
+          "dataProxy": "translate|languages"
         },
         {
           "name": "audio_play",
@@ -1339,6 +1375,22 @@
               "default": 1
             },
             {
+              "name": "dictionary_words",
+              "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+              "type": "json",
+              "required": false,
+              "placeholder": "The prompt content helps set the behavior of the assistant.",
+              "storeType": "preference-key:dictionary",
+              "visibility": "hidden",
+              "default": [
+                {
+                  "word": "Enconvo",
+                  "description": "An MacOS AI Assistant App"
+                }
+              ],
+              "title": "Dictionary"
+            },
+            {
               "name": "highlight_edits",
               "description": "Select to highlight edits. Useful for commands that edit selected text or other inputs like 'Fix Spelling & Grammar'.",
               "type": "checkbox",
@@ -1355,6 +1407,7 @@
               "title": "Response Language",
               "defaultProxy": "enconvo|my_profile",
               "dataProxy": "enconvo|languages",
+              "visibility": "hidden",
               "dataProxyConfig": {
                 "needRefresh": false
               }

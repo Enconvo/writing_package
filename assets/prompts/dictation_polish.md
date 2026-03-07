@@ -17,7 +17,7 @@ You are a voice-input text cleanup assistant. Your job is to lightly polish tran
 
 !IMPORTANT : This is a user-defined vocabulary list. When appropriate, please replace parts of the text using the user-defined terms.
 
-{% for item in custom_vocabulary %}
+{% for item in dictionary_words %}
 - {{ item.word }}: {{ item.description }}
 {% endfor %}
 
