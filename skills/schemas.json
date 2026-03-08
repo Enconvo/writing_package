@@ -1,0 +1,138 @@
+[
+  {
+    "name": "emoji",
+    "title": "Emoji",
+    "description": "Give An Emoji Suggestion for given text",
+    "route": "writing_package/emoji"
+  },
+  {
+    "name": "explain",
+    "title": "Explain",
+    "description": "Explain the text",
+    "route": "writing_package/explain"
+  },
+  {
+    "name": "screenshot_explain",
+    "title": "Screenshot Explain",
+    "description": "Explain the selected area",
+    "route": "writing_package/screenshot_explain",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "summarize",
+    "title": "Summarize",
+    "description": "Summarize the text",
+    "route": "writing_package/summarize"
+  },
+  {
+    "name": "fix_spelling_and_grammar",
+    "title": "Fix Spelling & Grammar",
+    "description": "Fix Spelling and Grammar",
+    "route": "writing_package/fix_spelling_and_grammar"
+  },
+  {
+    "name": "ai_edit",
+    "title": "AI Edit",
+    "description": "AI Edit",
+    "route": "writing_package/ai_edit"
+  },
+  {
+    "name": "improve_writing",
+    "title": "Improve Writing",
+    "description": "Improve Writing",
+    "route": "writing_package/improve_writing"
+  },
+  {
+    "name": "polish",
+    "title": "Polish",
+    "description": "Improve Writing",
+    "route": "writing_package/polish"
+  },
+  {
+    "name": "make_longer",
+    "title": "Make Longer",
+    "description": "expand the text to make it longer",
+    "route": "writing_package/make_longer"
+  },
+  {
+    "name": "make_shorter",
+    "title": "Make Shorter",
+    "description": "Make Shorter",
+    "route": "writing_package/make_shorter"
+  },
+  {
+    "name": "change_tone_to_friendly",
+    "title": "Change Tone Friendly",
+    "description": "Change Tone to Friendly",
+    "route": "writing_package/change_tone_to_friendly"
+  },
+  {
+    "name": "change_tone_to_confident",
+    "title": "Change Tone Confident",
+    "description": "Change Tone to Confident",
+    "route": "writing_package/change_tone_to_confident"
+  },
+  {
+    "name": "change_tone_to_casual",
+    "title": "Change Tone Casual",
+    "description": "Change Tone to Casual",
+    "route": "writing_package/change_tone_to_casual"
+  },
+  {
+    "name": "proofread",
+    "title": "Proofread",
+    "description": "Proofread the text",
+    "route": "writing_package/proofread"
+  },
+  {
+    "name": "rewrite",
+    "title": "Rewrite",
+    "description": "Rewrite the text",
+    "route": "writing_package/rewrite"
+  },
+  {
+    "name": "change_tone_to_professional",
+    "title": "Change Tone Professional",
+    "description": "Change Tone to Professional",
+    "route": "writing_package/change_tone_to_professional"
+  },
+  {
+    "name": "make_concise",
+    "title": "Make Concise",
+    "description": "Make the text more concise",
+    "route": "writing_package/make_concise"
+  },
+  {
+    "name": "extract_key_points",
+    "title": "Extract Key Points",
+    "description": "Extract key points from the text",
+    "route": "writing_package/extract_key_points"
+  },
+  {
+    "name": "convert_to_list",
+    "title": "Convert to List",
+    "description": "Convert the text to a list format",
+    "route": "writing_package/convert_to_list"
+  },
+  {
+    "name": "convert_to_table",
+    "title": "Convert to Table",
+    "description": "Convert the text to a table format",
+    "route": "writing_package/convert_to_table"
+  },
+  {
+    "name": "dictation_polish",
+    "title": "Dictation Polish",
+    "description": "Clean up voice input text by removing filler words and fixing typos",
+    "route": "writing_package/dictation_polish"
+  },
+  {
+    "name": "dictation_translate",
+    "title": "Dictation Translate",
+    "description": "Translate voice input text into the target language",
+    "route": "writing_package/dictation_translate"
+  }
+]
