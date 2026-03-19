@@ -3,136 +3,636 @@
     "name": "emoji",
     "title": "Emoji",
     "description": "Give An Emoji Suggestion for given text",
-    "route": "writing_package/emoji"
+    "routePath": "writing_package/emoji",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "explain",
     "title": "Explain",
     "description": "Explain the text",
-    "route": "writing_package/explain"
+    "routePath": "writing_package/explain",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "screenshot_explain",
     "title": "Screenshot Explain",
     "description": "Explain the selected area",
-    "route": "writing_package/screenshot_explain",
-    "parameters": {
-      "type": "object",
-      "properties": {}
-    }
+    "routePath": "writing_package/screenshot_explain"
   },
   {
     "name": "summarize",
     "title": "Summarize",
     "description": "Summarize the text",
-    "route": "writing_package/summarize"
+    "routePath": "writing_package/summarize",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "fix_spelling_and_grammar",
     "title": "Fix Spelling & Grammar",
     "description": "Fix Spelling and Grammar",
-    "route": "writing_package/fix_spelling_and_grammar"
+    "routePath": "writing_package/fix_spelling_and_grammar",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "ai_edit",
     "title": "AI Edit",
     "description": "AI Edit",
-    "route": "writing_package/ai_edit"
+    "routePath": "writing_package/ai_edit",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "improve_writing",
     "title": "Improve Writing",
     "description": "Improve Writing",
-    "route": "writing_package/improve_writing"
+    "routePath": "writing_package/improve_writing",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "polish",
     "title": "Polish",
     "description": "Improve Writing",
-    "route": "writing_package/polish"
+    "routePath": "writing_package/polish",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "make_longer",
     "title": "Make Longer",
     "description": "expand the text to make it longer",
-    "route": "writing_package/make_longer"
+    "routePath": "writing_package/make_longer",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "make_shorter",
     "title": "Make Shorter",
     "description": "Make Shorter",
-    "route": "writing_package/make_shorter"
+    "routePath": "writing_package/make_shorter",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "change_tone_to_friendly",
     "title": "Change Tone Friendly",
     "description": "Change Tone to Friendly",
-    "route": "writing_package/change_tone_to_friendly"
+    "routePath": "writing_package/change_tone_to_friendly",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "change_tone_to_confident",
     "title": "Change Tone Confident",
     "description": "Change Tone to Confident",
-    "route": "writing_package/change_tone_to_confident"
+    "routePath": "writing_package/change_tone_to_confident",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "change_tone_to_casual",
     "title": "Change Tone Casual",
     "description": "Change Tone to Casual",
-    "route": "writing_package/change_tone_to_casual"
+    "routePath": "writing_package/change_tone_to_casual",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "proofread",
     "title": "Proofread",
     "description": "Proofread the text",
-    "route": "writing_package/proofread"
+    "routePath": "writing_package/proofread",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "rewrite",
     "title": "Rewrite",
     "description": "Rewrite the text",
-    "route": "writing_package/rewrite"
+    "routePath": "writing_package/rewrite",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "change_tone_to_professional",
     "title": "Change Tone Professional",
     "description": "Change Tone to Professional",
-    "route": "writing_package/change_tone_to_professional"
+    "routePath": "writing_package/change_tone_to_professional",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "make_concise",
     "title": "Make Concise",
     "description": "Make the text more concise",
-    "route": "writing_package/make_concise"
+    "routePath": "writing_package/make_concise",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "extract_key_points",
     "title": "Extract Key Points",
     "description": "Extract key points from the text",
-    "route": "writing_package/extract_key_points"
+    "routePath": "writing_package/extract_key_points",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "convert_to_list",
     "title": "Convert to List",
     "description": "Convert the text to a list format",
-    "route": "writing_package/convert_to_list"
+    "routePath": "writing_package/convert_to_list",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "convert_to_table",
     "title": "Convert to Table",
     "description": "Convert the text to a table format",
-    "route": "writing_package/convert_to_table"
+    "routePath": "writing_package/convert_to_table",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "dictation_polish",
     "title": "Dictation Polish",
     "description": "Clean up voice input text by removing filler words and fixing typos",
-    "route": "writing_package/dictation_polish"
+    "routePath": "writing_package/dictation_polish",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   },
   {
     "name": "dictation_translate",
     "title": "Dictation Translate",
     "description": "Translate voice input text into the target language",
-    "route": "writing_package/dictation_translate"
+    "routePath": "writing_package/dictation_translate",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "input_text": {
+          "type": "string",
+          "description": "The input text"
+        },
+        "selection_text": {
+          "type": "string",
+          "description": "The selected text from current active application"
+        },
+        "context_screen": {
+          "type": "string",
+          "description": "The screenshot of the current screen"
+        },
+        "context_camera": {
+          "type": "string",
+          "description": "The image captured by the camera"
+        }
+      },
+      "required": [
+        "input_text"
+      ]
+    }
   }
 ]

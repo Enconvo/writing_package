@@ -1,8 +1,8 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.248",
-  "description": "A package for writing",
+  "version": "0.0.261",
+  "description": "AI-powered writing toolkit with commands for grammar/spelling correction, text editing, rewriting, tone adjustment, summarization, proofreading, key point extraction, format conversion, and dictation polishing via configurable LLM providers.",
   "title": "Writing Toolkit",
   "icon": "icon.png",
   "author": "EnconvoAI",
@@ -46,7 +46,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -102,7 +103,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -187,7 +189,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -244,7 +247,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -301,7 +305,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -358,7 +363,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -415,7 +421,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -472,7 +479,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -529,7 +537,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -586,7 +595,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -643,7 +653,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -700,7 +711,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -757,7 +769,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -814,7 +827,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -871,7 +885,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -928,7 +943,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -984,7 +1000,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -1040,7 +1057,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -1095,7 +1113,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -1144,7 +1163,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -1177,7 +1197,8 @@
               "name": "tts_providers",
               "description": "The TTS provider to use.",
               "visibility": "hidden",
-              "type": "extension",
+              "type": "provider",
+              "providerCategory": "tts",
               "required": false,
               "default": "default",
               "title": "TTS Provider"
@@ -1298,7 +1319,8 @@
         {
           "name": "llm",
           "description": "The model used to generate responses",
-          "type": "extension",
+          "type": "provider",
+          "providerCategory": "llm",
           "required": false,
           "default": "enconvo_ai",
           "title": "LLM Provider",
@@ -1351,7 +1373,8 @@
               "name": "tts_providers",
               "description": "The TTS provider to use.",
               "visibility": "hidden",
-              "type": "extension",
+              "type": "provider",
+              "providerCategory": "tts",
               "required": false,
               "default": "default",
               "title": "TTS Provider"
@@ -1440,7 +1463,7 @@
     }
   ],
   "dependencies": {
-    "@enconvo/api": "link:/Users/ysnows/Documents/Project/enconvo.nodejs/enconvo_api",
+    "@enconvo/api": "link:../../enconvo.nodejs/enconvo_api",
     "diff": "^8.0.1",
     "jsdiff": "^1.1.1"
   },
@@ -1456,7 +1479,7 @@
     "lint:fix": "npm run lint --fix",
     "format": "prettier --write \"**/*.ts\"",
     "format:check": "prettier --list-different \"**/*.ts\"",
-    "build": "enconvo",
-    "dev": "enconvo --dev"
+    "build": "enconvo dev",
+    "dev": "enconvo dev --dev"
   }
 }
