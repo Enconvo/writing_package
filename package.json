@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "writing_package",
-  "version": "0.0.261",
+  "version": "0.0.268",
   "description": "AI-powered writing toolkit with commands for grammar/spelling correction, text editing, rewriting, tone adjustment, summarization, proofreading, key point extraction, format conversion, and dictation polishing via configurable LLM providers.",
   "title": "Writing Toolkit",
   "icon": "icon.png",
@@ -54,8 +54,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -98,7 +98,7 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "dataProxy": "translate|languages"
+          "dataProxy": "translate/languages"
         },
         {
           "name": "llm",
@@ -111,8 +111,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -184,7 +184,7 @@
           "required": false,
           "title": "Response Language",
           "default": "auto",
-          "dataProxy": "translate|languages"
+          "dataProxy": "translate/languages"
         },
         {
           "name": "llm",
@@ -197,8 +197,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -255,8 +255,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -313,8 +313,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -371,8 +371,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -429,8 +429,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -487,8 +487,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -545,8 +545,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -603,8 +603,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -661,8 +661,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -719,8 +719,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -777,8 +777,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -835,8 +835,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -893,8 +893,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -951,8 +951,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -1008,8 +1008,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -1065,8 +1065,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -1121,8 +1121,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -1171,7 +1171,7 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
+              "selected": "llm|enconvo_ai",
               "modelName": "google/gemini-3.1-flash-lite-preview",
               "temperature": 0
             }
@@ -1254,7 +1254,7 @@
               "visibility": "hidden",
               "title": "Response Language",
               "defaultProxy": "enconvo|my_profile",
-              "dataProxy": "enconvo|languages",
+              "dataProxy": "enconvo/languages",
               "dataProxyConfig": {
                 "needRefresh": false
               }
@@ -1327,8 +1327,8 @@
           "group": "AI Model",
           "defaultOptions": [
             {
-              "commandName": "enconvo_ai",
-              "modelName": "openai/gpt-5-mini",
+              "selected": "llm|enconvo_ai",
+              "modelName": "openai/gpt-5.4-mini",
               "temperature": 0
             }
           ]
@@ -1341,7 +1341,7 @@
           "required": false,
           "title": "Source Language",
           "default": "auto",
-          "dataProxy": "translate|languages"
+          "dataProxy": "translate/languages"
         },
         {
           "name": "targetLang",
@@ -1351,7 +1351,7 @@
           "group": "AI Model",
           "title": "Target Language",
           "default": "ja",
-          "dataProxy": "translate|languages"
+          "dataProxy": "translate/languages"
         },
         {
           "name": "audio_play",
@@ -1429,7 +1429,7 @@
               "required": false,
               "title": "Response Language",
               "defaultProxy": "enconvo|my_profile",
-              "dataProxy": "enconvo|languages",
+              "dataProxy": "enconvo/languages",
               "visibility": "hidden",
               "dataProxyConfig": {
                 "needRefresh": false
@@ -1468,10 +1468,10 @@
     "jsdiff": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2",
+    "@types/node": "^25.5.0",
     "eslint": "^9.17.0",
     "prettier": "^3.4.2",
-    "tsup": "^8.3.5",
+    "tsup": "^8.5.1",
     "typescript": "^5.7.2"
   },
   "scripts": {
