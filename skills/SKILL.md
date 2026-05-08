@@ -4,7 +4,7 @@ description: >
   AI-powered writing toolkit with commands for grammar/spelling correction, text editing, rewriting, tone adjustment, summarization, proofreading, key point extraction, format conversion, and dictation polishing via configurable LLM providers.
 metadata:
   author: EnconvoAI
-  version: "0.0.268"
+  version: "0.0.305"
 ---
 
 ## API Reference
