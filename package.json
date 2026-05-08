@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "apple_shortcuts",
-  "version": "0.0.66",
+  "version": "0.0.105",
   "description": "Container extension for Apple Shortcuts integration. Commands are dynamically populated by the platform based on shortcuts available on the system.",
   "title": "Shortcuts",
   "icon": "icon.png",
